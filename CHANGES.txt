@@ -3,7 +3,7 @@ Changelog
 
 (name of developer listed in brackets)
 
-2.3 (unreleased)
+2.3 (2012-01-23)
 ----------------
 
 - Moved the plone.app.testing and unittest2 dependencies to a test extra.
