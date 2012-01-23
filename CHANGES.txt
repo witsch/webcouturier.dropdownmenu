@@ -16,6 +16,12 @@ webcouturier.dropdownmenu 2.3 unreleased
 - fix unkown version in quickinstaller.
   [toutpt]
 
+- fix typo in skins.xml provide wrong install on sunburst
+  [toutpt]
+
+- rename dropdown css from dtml to static css
+  [toutpt]
+
 webcouturier.dropdownmenu 2.2 (August 17, 2011)
 -----------------------------------------------
 
