@@ -12,7 +12,7 @@
 
  <skin-path name="Sunburst Theme">
   <layer name="dropdownmenu_sunburst"
-         insert-befor="dropdownmenu" />
+         insert-before="dropdownmenu" />
  </skin-path>
 
 </object>
