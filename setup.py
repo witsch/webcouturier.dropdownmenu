@@ -5,7 +5,7 @@ version = "2.3"
 setup(name='webcouturier.dropdownmenu',
       version=version,
       description="Dropdown menus for global navigation in Plone",
-      long_description=open("README.txt").read()+ '\n' +
+      long_description=open("README.rst").read()+ '\n' +
                        open("docs/INSTALL.txt").read()+ '\n' +
                        open('CHANGES.txt').read(),
       classifiers=[
