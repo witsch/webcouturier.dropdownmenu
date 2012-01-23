@@ -3,11 +3,10 @@ Changelog
 
 (name of developer listed in brackets)
 
-webcouturier.dropdownmenu 2.3 unreleased
------------------------------------------------
+2.3 (unreleased)
+----------------
 
-- Moved the plone.app.testing and unittest2 dependencies to a test
-  extra.
+- Moved the plone.app.testing and unittest2 dependencies to a test extra.
   [Maurits]
 
 - Only load the CMF permissions when on Plone 4.1 or higher.
@@ -22,8 +21,8 @@ webcouturier.dropdownmenu 2.3 unreleased
 - rename dropdown css from dtml to static css
   [toutpt]
 
-webcouturier.dropdownmenu 2.2 (August 17, 2011)
------------------------------------------------
+2.2 (August 17, 2011)
+---------------------
 
 - Javascript simplification using jQuery.
   [spliter]
@@ -45,8 +44,8 @@ webcouturier.dropdownmenu 2.2 (August 17, 2011)
 - Fix Plone4.1 startup issue: http://dev.plone.org/plone/ticket/11837
   [toutpt]
 
-webcouturier.dropdownmenu 2.1 (2010-09-23)
-------------------------------------------
+2.1 (2010-09-23)
+----------------
 
 - Add z3c.autoinclude entry point so ZCML is loaded automatically in Plone.
   [davisagli]
@@ -60,8 +59,8 @@ webcouturier.dropdownmenu 2.1 (2010-09-23)
 - Added Spanish translation
   [macagua]
 
-webcouturier.dropdownmenu 2.0
------------------------------
+2.0 (2009-05-26)
+----------------
 
 - Updated README.txt with the whole bunch of information that 
   users need about the package.
@@ -81,8 +80,8 @@ webcouturier.dropdownmenu 2.0
   templates without a #portal-globalnav.
   [davisagli]
 
-webcouturier.dropdownmenu 1.1.5
--------------------------------
+1.1.5 (2008-04-19)
+------------------
 
 - Made the package work in both Plone 3.0.x and Plone 3.1
   [spliter]
@@ -99,16 +98,16 @@ webcouturier.dropdownmenu 1.1.5
   users now to decide what version of plone.browserlayer to use.
   [spliter]
 
-webcouturier.dropdownmenu 1.1.4
--------------------------------
+1.1.4 (2008-04-11)
+------------------
 
 - Fixed the bug when you have could get the error in case your navigation 
   root differs from site root. In this case you could get 
   "'NoneType' object has no attribute 'endswith'" error
   [spliter]
 
-webcouturier.dropdownmenu 1.1.3
--------------------------------
+1.1.3 (2008-04-09)
+------------------
 
 - Switched the package from using browser resource for the main 
   stylesheet. It's now in skins/ to follow main theme's colors
@@ -131,8 +130,8 @@ webcouturier.dropdownmenu 1.1.3
   properly.
   [wichert]
 
-webcouturier.dropdownmenu 1.1
------------------------------
+1.1 (2007-10-29)
+----------------
 
 - Dropdownmenu uses it's own builder now (instead of sharing the same one
   with site map). Implemented new property ``dropdownDepth`` to contain
@@ -144,8 +143,8 @@ webcouturier.dropdownmenu 1.1
   [spliter]    
 
 
-webcouturier.dropdownmenu 1.0
------------------------------
+1.0 (2007-10-05)
+----------------
 
 - Initial release. Tested in all modern browsers, incl. Safari, IE6, IE7
   and so on.
