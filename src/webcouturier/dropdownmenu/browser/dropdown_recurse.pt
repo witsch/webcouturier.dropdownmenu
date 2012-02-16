@@ -11,9 +11,11 @@
 <tal:navitem repeat="node children">
 <li tal:define="show_children   node/show_children;
                 children        node/children;
-                item_url        node/getURL;
-                item_icon       nocall:node/item_icon;
                 item_type       node/portal_type;
+                item_url        node/getURL;
+                item_remote_url node/getRemoteUrl;
+                use_remote_url  node/useRemoteUrl | nothing;
+                item_icon       nocall:node/item_icon;
                 normalizeString nocall: context/plone_utils/normalizeString;"
     tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
 
@@ -22,7 +24,7 @@
                        item_class string:state-${node/normalized_review_state}${children_class};
                        item_clickable python:enable_parent_clickable or not has_children;">
 
-        <a tal:attributes="href python:item_url;
+        <a tal:attributes="href python:use_remote_url and item_remote_url or item_url;
                            title node/Description;
                            class python:item_clickable and item_class or item_class + ' noClick'">
             <img tal:replace="structure item_icon/html_tag" />
