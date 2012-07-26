@@ -3,8 +3,8 @@ Changelog
 
 (name of developer listed in brackets)
 
-2.4 (unreleased)
-----------------
+2.3.1 (2012-07-26)
+------------------
 
 - move css from import to link
   [toutpt]
