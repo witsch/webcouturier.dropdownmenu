@@ -8,6 +8,6 @@
 
     <stylesheet title="" cacheable="True" compression="safe" cookable="True"
        enabled="1" expression="" id="dropdown-menu.css"
-       media="screen" rel="stylesheet" rendering="import"
+       media="screen" rel="stylesheet" rendering="link"
        insert-after="forms.css" />
 </object>

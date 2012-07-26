@@ -6,8 +6,8 @@ Changelog
 2.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- move css from import to link
+  [toutpt]
 
 2.3 (2012-01-23)
 ----------------
