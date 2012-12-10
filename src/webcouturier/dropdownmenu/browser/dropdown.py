@@ -1,3 +1,4 @@
+from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from zope.component import getMultiAdapter
 from zope.interface import implements
@@ -162,9 +163,14 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
         # Check to see if we are using a navigation root. If we are
         # virtual hosting the navigation root as its own domain,
         # the tabPath is no longer rooted at the main portal.
-        if portal_path != self.navroot_path:
-            portal = portal.restrictedTraverse(self.navroot_path)
-        tabObj = portal.restrictedTraverse(tabPath, None)
+        try:
+            if portal_path != self.navroot_path:
+                portal = portal.restrictedTraverse(self.navroot_path)
+            tabObj = portal.restrictedTraverse(tabPath, None)
+        except Unauthorized:
+            # Unauthorized can happen when error page is rendered in
+            # unallowed context
+            return ''
 
         if tabObj is None:
             # just in case we have missed any possible path
