@@ -18,7 +18,7 @@
                 item_icon       nocall:node/item_icon;
                 normalizeString nocall: context/plone_utils/normalizeString;"
     tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel"
-    tal:attributes="class python:children and 'dropdown-submenu'">
+    tal:attributes="class python:children and 'dropdown-submenu' or None">
 
     <tal:level define="has_children nocall:children;
                        children_class python:has_children and ' hasDropDown' or '';
