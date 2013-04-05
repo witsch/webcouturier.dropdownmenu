@@ -17,7 +17,8 @@
                 use_remote_url  node/useRemoteUrl | nothing;
                 item_icon       nocall:node/item_icon;
                 normalizeString nocall: context/plone_utils/normalizeString;"
-    tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
+    tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel"
+    tal:attributes="class python:children and 'dropdown-submenu'">
 
     <tal:level define="has_children nocall:children;
                        children_class python:has_children and ' hasDropDown' or '';
@@ -31,7 +32,7 @@
             <span tal:replace="node/Title">Selected Item Title</span>
         </a>
 
-        <ul tal:attributes="class python:'submenu navTree navTreeLevel'+str(level)"
+        <ul tal:attributes="class python:'submenu dropdown-menu navTree navTreeLevel'+str(level)"
             tal:condition="python: len(children) > 0 and show_children">
             <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
         </ul>

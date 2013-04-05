@@ -6,6 +6,9 @@ Changelog
 2.3.2 (unreleased)
 ------------------
 
+- Add markup and a profile to support Twitter Bootstrap dropdowns.
+  [rpatterson]
+
 - Handle Unauthorized exceptions when rendered in context of unauthorized
   objects. Can happen with standard_error_pages
   [do3cc]

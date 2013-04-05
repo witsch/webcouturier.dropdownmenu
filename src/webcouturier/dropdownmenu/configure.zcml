@@ -31,6 +31,11 @@
         i18n:attributes="title label_gs_default;
                          description help_gs_default;"
         />
+    <genericsetup:registerProfile
+        name="bootstrap"
+        title="Dropdown menus for Twitter Bootstrap"
+        description="Modify the install to work with Twitter Bootstrap."
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
 
 </configure>
