@@ -11,7 +11,7 @@
                          subitems python:view.getTabObject(tabUrl = tab['url'], tabPath = tab.get('path'));
                          item_clickable python:view.enable_parent_clickable or not subitems"
              tal:attributes="id string:portaltab-${tid};
-                             class python:selected_tab==tid and 'dropdown selected' or 'dropdown plain';"
+                             class python:selected_tab==tid and 'dropdown active selected' or 'dropdown plain';"
             ><a href=""
                 class="dropdown-toggle"
                 data-toggle="dropdown"
