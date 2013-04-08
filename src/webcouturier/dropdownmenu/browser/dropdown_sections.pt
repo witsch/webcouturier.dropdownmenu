@@ -29,12 +29,10 @@
              tal:attributes="id string:portaltab-${tid};
                              class python:selected_tab==tid and 'dropdown active selected' or 'dropdown plain';"
             ><a href=""
-                class="dropdown-toggle"
-                data-toggle="dropdown"
                tal:content="tab/name"
                tal:attributes="href tab/url;
                                title tab/description|nothing;
-                               class python:item_clickable and 'dropdown-toggle plain' or 'dropdown-toggle noClick'">
+                               class python:item_clickable and 'plain' or 'noClick'">
             Tab Name
             </a
             ><tal:block tal:condition="subitems">

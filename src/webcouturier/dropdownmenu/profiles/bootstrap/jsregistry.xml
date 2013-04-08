@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<object name="portal_javascripts">
-  <!-- Don't conflict with bootstrap's CSS -->
-  <javascript id="++resource++dropdown-menu.js"
-              enabled="False" />
-</object>
