@@ -5,12 +5,13 @@ jQuery(function ($) {
     $('#portal-globalnav .noClick').click(function (e) {
         e.preventDefault();
     });
+
+    $('ul.nav li.dropdown').hover(function() {
+        $(this).closest('.dropdown-menu').stop(true, true).show();
+        $(this).addClass('open');
+    }, function() {
+        $(this).closest('.dropdown-menu').stop(true, true).hide();
+        $(this).removeClass('open');
+    });
 });
 
-jQuery('ul.nav li.dropdown').hover(function() {
-    jQuery(this).closest('.dropdown-menu').stop(true, true).show();
-    jQuery(this).addClass('open');
-}, function() {
-    jQuery(this).closest('.dropdown-menu').stop(true, true).hide();
-    jQuery(this).removeClass('open');
-});
