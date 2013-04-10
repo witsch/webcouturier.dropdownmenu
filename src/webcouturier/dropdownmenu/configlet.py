@@ -1,17 +1,13 @@
-from zope.component import adapts, getUtility
-from zope.formlib.form import FormFields
-from zope.interface import implements
-from zope.i18nmessageid import MessageFactory
-
 from Products.CMFCore.interfaces import IPropertiesTool
 from Products.CMFDefault.formlib.schema import ProxyFieldProperty
 from Products.CMFDefault.formlib.schema import SchemaAdapterBase
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from plone.app.controlpanel.form import ControlPanelForm
-
+from zope.component import adapts, getUtility
+from zope.formlib.form import FormFields
+from zope.interface import implements
 from webcouturier.dropdownmenu.browser.interfaces import IDropdownConfiguration
-
-_ = MessageFactory('webcouturier.dropdownmenu')
+from webcouturier.dropdownmenu import msg_fact as _
 
 
 class DropdownControlPanelAdapter(SchemaAdapterBase):

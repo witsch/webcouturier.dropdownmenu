@@ -1,4 +1,5 @@
 from Products.CMFCore.utils import getToolByName
+
 PROFILE = 'profile-webcouturier.dropdownmenu:default'
 
 

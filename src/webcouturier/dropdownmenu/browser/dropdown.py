@@ -1,20 +1,15 @@
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
-from zope.component import getMultiAdapter
-from zope.interface import implements
-
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from plone.app.layout.navigation.navtree import buildFolderTree
 from plone.app.layout.navigation.root import getNavigationRoot
-
-from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
-
-from plone.app.portlets.portlets.navigation import Assignment
-
 from plone.app.layout.viewlets import common
-
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFCore.utils import getToolByName
+from plone.app.portlets.portlets.navigation import Assignment
+from zope.component import getMultiAdapter
+from zope.interface import implements
 
 #
 # Import ram.cache feature and xhmtl_compression (removes whitespace and so on)

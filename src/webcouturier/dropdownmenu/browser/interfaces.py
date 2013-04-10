@@ -1,11 +1,7 @@
-from zope.interface import Interface
-from zope import schema
-from zope.i18nmessageid import MessageFactory
-
 from plone.theme.interfaces import IDefaultPloneLayer
-
-_ = MessageFactory('webcouturier.dropdownmenu')
-
+from zope import schema
+from zope.interface import Interface
+from webcouturier.dropdownmenu import msg_fact as _
 
 class IDropdownConfiguration(Interface):
     """This interface defines the configlet for dropdown menus."""
