@@ -1,17 +1,22 @@
+#!/bin/sh
+
 # Use like this
 #i18ndude rebuild-pot --pot ./GenericPloneContent.pot --merge ../i18n/generated.pot --exclude=`find ../profiles -name "*.*py"` --create schemamanager ../ || exit 1
 
 rm ./rebuild_i18n.log
 
-i18ndude rebuild-pot --pot ./webcouturier.dropdownmenu.pot --create webcouturier.dropdownmenu ../ || exit 1
-i18ndude sync --pot ./webcouturier.dropdownmenu.pot ./*/LC_MESSAGES/webcouturier.dropdownmenu.po
+# Path to i18ndude
+I18NDUDE=i18ndude
 
-i18ndude rebuild-pot --pot ../i18n/webcouturier.dropdownmenu-plone.pot --exclude=`find ../ -name "*.*py"` --create plone ../ || exit 1
-i18ndude sync --pot ../i18n/webcouturier.dropdownmenu-plone.pot ../i18n/webcouturier.dropdownmenu-plone-*.po
+$I18NDUDE rebuild-pot --pot ./webcouturier.dropdownmenu.pot --create webcouturier.dropdownmenu ../ || exit 1
+$I18NDUDE sync --pot ./webcouturier.dropdownmenu.pot ./*/LC_MESSAGES/webcouturier.dropdownmenu.po
 
-WARNINGS=`find . -name "*pt" | xargs i18ndude find-untranslated | grep -e '^-WARN' | wc -l`
-ERRORS=`find . -name "*pt" | xargs i18ndude find-untranslated | grep -e '^-ERROR' | wc -l`
-FATAL=`find . -name "*pt"  | xargs i18ndude find-untranslated | grep -e '^-FATAL' | wc -l`
+$I18NDUDE rebuild-pot --pot ./plone.pot --create plone ../ || exit 1
+$I18NDUDE sync --pot ./plone.pot ./*/LC_MESSAGES/plone.po
+
+WARNINGS=`find . -name "*pt" | xargs $I18NDUDE find-untranslated | grep -e '^-WARN' | wc -l`
+ERRORS=`find . -name "*pt" | xargs $I18NDUDE find-untranslated | grep -e '^-ERROR' | wc -l`
+FATAL=`find . -name "*pt"  | xargs $I18NDUDE find-untranslated | grep -e '^-FATAL' | wc -l`
 
 echo
 echo "There are $ERRORS errors \(almost definitely missing i18n markup\)"
@@ -22,5 +27,5 @@ echo "Look the rebuild i18n log generate for this script called \'rebuild_i18n.l
 
 touch ./rebuild_i18n.log
 
-find ../ -name "*pt" | xargs i18ndude find-untranslated > rebuild_i18n.log
-find ../ -name "*.xml" | xargs i18ndude find-untranslated >> rebuild_i18n.log
+find ../ -name "*pt" | xargs $I18NDUDE find-untranslated > rebuild_i18n.log
+find ../ -name "*.xml" | xargs $I18NDUDE find-untranslated >> rebuild_i18n.log
