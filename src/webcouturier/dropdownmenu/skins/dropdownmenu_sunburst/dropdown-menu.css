@@ -51,3 +51,9 @@ ul.submenu a.state-published:hover,
 .selected ul.submenu .state-published {
     color: #fff !important;
 }
+
+/*----- espens styels -----*/
+x.submenu_title,
+x.submenu_description {
+    clear:  both;
+}

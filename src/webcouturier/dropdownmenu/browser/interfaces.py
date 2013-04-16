@@ -39,6 +39,25 @@ class IDropdownConfiguration(Interface):
         default=True,
         required=False)
 
+    enable_desc = schema.Bool(
+        title=_(u"label_enable_desc",
+                default=u"Show Description"),
+        description=_(
+            u"help_desc",
+            default=(u"With this option enabled, description is also shown.")),
+        default=True,
+        required=False)
+
+    enable_thumbs = schema.Bool(
+        title=_(u"label_enable_thumbs",
+                default=u"Show thumbnail images"),
+        description=_(
+            u"help_thumbs",
+            default=(u"With this option enabled, thumb images are shown.")),
+        default=True,
+        required=False)
+        
+
 
 class IDropdownSpecific(IDefaultPloneLayer):
     """Marker interface that defines a Zope 3 browser layer.

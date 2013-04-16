@@ -24,7 +24,10 @@ class DropdownControlPanelAdapter(SchemaAdapterBase):
         IDropdownConfiguration['enable_caching'])
     enable_parent_clickable = ProxyFieldProperty(
         IDropdownConfiguration['enable_parent_clickable'])
-
+    enable_desc = ProxyFieldProperty(
+        IDropdownConfiguration['enable_desc'])
+    enable_thumbs = ProxyFieldProperty(
+        IDropdownConfiguration['enable_thumbs'])
 
 class DropdownControlPanel(ControlPanelForm):
     form_fields = FormFields(IDropdownConfiguration)
