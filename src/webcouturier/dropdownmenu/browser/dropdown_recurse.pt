@@ -25,22 +25,16 @@
                        item_class string:state-${node/normalized_review_state}${children_class};
                        item_clickable python:enable_parent_clickable or not has_children;">
 
-            <img src="" alt=""
-                 tal:replace="structure python: path('nocall:item_url/tag')(scale='icon', css_class='tileImage')" />
-
 
         <a tal:attributes="href python:use_remote_url and item_remote_url or item_url;
                            title node/Description;
                            class python:item_clickable and item_class or item_class + ' noClick'">
-            <img tal:replace="structure item_icon/html_tag" />
-            
-            <img src="" alt=""
-                 tal:replace="structure python: path('nocall:node/getRemoteUrl/tag')(scale='icon', css_class='tileImage')" />
-                    
-            
+            <img src="" class="subnmenu_image"
+                 tal:attributes="src string:${node/absolute_url}/@@images/image/icon" alt=""  />
+                 
             <span tal:replace="node/Title" class="submenu_title">Selected Item Title</span>
         </a>
-        <span tal:replace="node/Description" class="submenu_description">Selected Item Description</span>
+        <span tal:replace="node/Description" class="submenu_description"  tal:condition="node/Description">Selected Item Description</span>
         
         <ul tal:attributes="class python:'submenu dropdown-menu navTree navTreeLevel'+str(level)"
             tal:condition="python: len(children) > 0 and show_children">
