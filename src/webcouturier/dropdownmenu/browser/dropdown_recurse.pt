@@ -10,12 +10,13 @@
                 enable_parent_clickable view/enable_parent_clickable|utils/parentClickable">
 <tal:navitem repeat="node children">
 <li tal:define="show_children   node/show_children;
+                item_obj node;
                 children        node/children;
                 item_type       node/portal_type;
                 item_url        node/getURL;
                 item_remote_url node/getRemoteUrl;
                 use_remote_url  node/useRemoteUrl | nothing;
-                item_icon       nocall:node/item_icon;
+                item_icon       python.node.getIcon();
                 normalizeString nocall: context/plone_utils/normalizeString;"
     tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel"
     tal:attributes="class python:children and 'dropdown-submenu' or None">
@@ -29,9 +30,15 @@
         <a tal:attributes="href python:use_remote_url and item_remote_url or item_url;
                            title node/Description;
                            class python:item_clickable and item_class or item_class + ' noClick'">
-            <img src="" class="subnmenu_image"
-                 tal:attributes="src string:${node/absolute_url}/@@images/image/icon" alt=""  />
-                 
+            <img src="" alt="" class="subnmenu_image" 
+                 tal:define="has_image exists:python:node.Schema().getField('image')"
+                 tal:attributes="src string:${item_url}/@@images/image/icon">
+
+
+                 p  tal:define="has_image node/getIcon" tal:content="has_image" />
+ 
+
+   
             <span tal:replace="node/Title" class="submenu_title">Selected Item Title</span>
         </a>
         <span tal:replace="node/Description" class="submenu_description"  tal:condition="node/Description">Selected Item Description</span>
