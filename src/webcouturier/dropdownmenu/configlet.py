@@ -9,7 +9,6 @@ from zope.interface import implements
 from webcouturier.dropdownmenu.browser.interfaces import IDropdownConfiguration
 from webcouturier.dropdownmenu import msg_fact as _
 
-
 class DropdownControlPanelAdapter(SchemaAdapterBase):
     adapts(IPloneSiteRoot)
     implements(IDropdownConfiguration)

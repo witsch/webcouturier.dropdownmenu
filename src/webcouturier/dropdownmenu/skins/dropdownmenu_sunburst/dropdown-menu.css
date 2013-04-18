@@ -1,4 +1,5 @@
- 
+/* @override http://localhost:8080/dropdown/portal_css/Sunburst%20Theme/dropdown-menu.css */
+
 #portal-top {
   z-index:1;
   }
@@ -47,30 +48,30 @@ ul.submenu ul {
   top:0;
   left:100%;
   }
-ul.submenu a.state-published:hover,
-.selected ul.submenu .state-published {
+ul.submenu a.state-published:hover {
     color: #fff !important;
 }
 
-/*----- espens styels -----*/
-
-#portaltab-mappe ul.submenu.dropdown-menu li {
-	clear: both;
-	background: #d5d5d5;
-	padding-bottom: 4px;
+.selected ul.submenu .state-published {
+    background-color: #7c98ac;
 }
 
-#portal-globalnav ul.submenu li:hover {
-  background: #1c4b7c;
-  }
-  
-#portal-globalnav ul.submenu li:hover a {
-  background: none;
-  }
-  
+
+/*----- espens styels -----*/
+
+ul.submenu.dropdown-menu {
+	border-right: none;
+	background-color: #7c98ac;
+}
+
+ul.submenu.dropdown-menu li {
+	clear: both;
+	padding-bottom: 4px;	
+}
+
 .submenu_title,
 .submenu_description {
-   width: 110px;
+   width: 105px;
    float: left;
    display: block;
 }

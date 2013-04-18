@@ -34,8 +34,8 @@
                            class python:item_clickable and item_class or item_class + ' noClick'">
             <img src="" alt="" class="subnmenu_image" 
                  tal:define="has_icon exists:python:my_item.getObject().getImage().icon" 
-                 tal:attributes="src string:${item_url}/@@images/image/icon"
-                 tal:condition="python:has_icon and enable_thumbs" />
+                 tal:attributes="src string:${item_url}/image_${enable_thumbs}"
+                 tal:condition="python:has_icon and enable_thumbs!='none'" />
     
             <span tal:content="node/Title" class="submenu_title">Selected Item Title</span>
             <span tal:content="node/Description" class="submenu_description"  
