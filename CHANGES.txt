@@ -6,6 +6,9 @@ Changelog
 2.3.2dev (unreleased)
 ---------------------
 
+- Added option to show image and description in dropdownmenu [espen]
+
+
 - Codebase cleanup.
   [thet]
 
@@ -15,6 +18,8 @@ Changelog
 - Handle Unauthorized exceptions when rendered in context of unauthorized
   objects. Can happen with standard_error_pages
   [do3cc]
+
+
 
 
 2.3.1 (2012-07-26)
