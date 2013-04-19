@@ -7,6 +7,19 @@ def common(context):
     setup = getToolByName(context, 'portal_setup')
     setup.runAllImportStepsFromProfile(PROFILE)
 
+def upgrade_to_2012(context):
+    """Adds setting to portal properties"""
+    pprops = getToolByName(context, 'portal_properties')
+    props = pprops.dropdown_properties
+    try:
+        props.manage_addProperty(id='enable_desc', value=False, type='boolean')
+    except:
+        pass
+    
+    try:
+        props.manage_addProperty(id='enable_thumbs', value='none' type='string')
+    except:
+        pass
 
 def upgrade_1000_to_1010(context):
     """If dropdownmenu_sunburst is after dropdownmenu in sunburst skin,

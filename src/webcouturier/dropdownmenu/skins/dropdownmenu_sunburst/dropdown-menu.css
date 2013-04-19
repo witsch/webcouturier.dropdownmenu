@@ -1,4 +1,7 @@
-/* @override http://localhost:8080/dropdown/portal_css/Sunburst%20Theme/dropdown-menu.css */
+/* @override 
+	http://localhost:8080/dropdown/portal_css/Sunburst%20Theme/dropdown-menu.css
+	http://localhost:8080/espen2/portal_css/Sunburst%20Theme/dropdown-menu.css
+*/
 
 #portal-top {
   z-index:1;
@@ -42,17 +45,16 @@ ul.submenu li {
 #portal-globalnav ul.submenu li a {
   padding:0.5em 1.5em 0.5em 1em;
   width:12em;
-  background: none;
   }
+
+
 ul.submenu ul {
   top:0;
   left:100%;
   }
-ul.submenu a.state-published:hover {
-    color: #fff !important;
-}
 
-.selected ul.submenu .state-published {
+
+.selected ul.submenu {
     background-color: #7c98ac;
 }
 
@@ -61,23 +63,36 @@ ul.submenu a.state-published:hover {
 
 ul.submenu.dropdown-menu {
 	border-right: none;
-	background-color: #7c98ac;
+	background-color: #FDFDFD;
 }
 
 ul.submenu.dropdown-menu li {
 	clear: both;
-	padding-bottom: 4px;	
+	padding-bottom: 4px;
+	border-bottom: 1px solid silver;	
+}
+
+#portaltab-mappe ul.submenu.dropdown-menu li a{
+	background: none;
 }
 
 .submenu_title,
 .submenu_description {
-   width: 105px;
-   float: left;
-   display: block;
+   color:  #123456;;
+}
+
+span.submenu_description {
+clear: left;
+display: block;
 }
 
 .subnmenu_image {
 	float: right;
+	margin-left: 4px;
+	margin-bottom: 3px;
 }
 
-
+.submenu_title:hover {
+ color: black;
+ text-decoration: underline;
+}

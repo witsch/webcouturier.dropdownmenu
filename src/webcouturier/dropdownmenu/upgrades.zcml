@@ -4,6 +4,14 @@
   i18n_domain="collective.gallery">
 
   <gs:upgradeStep
+    title="Upgrade with new settings in propertysheets"
+    description="Upgrade settings to include option to show image and description"
+    source="*"
+    destination="1012"
+    handler=".upgrades.upgrade_to_2012"
+    profile="webcouturier.dropdownmenu:default"/>
+    
+  <gs:upgradeStep
     title="Common Upgrade: apply default profile"
     description=""
     source="*"
