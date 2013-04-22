@@ -8,7 +8,6 @@ Changelog
 
 - Added option to show image and description in dropdownmenu [espen]
 
-
 - Codebase cleanup.
   [thet]
 
