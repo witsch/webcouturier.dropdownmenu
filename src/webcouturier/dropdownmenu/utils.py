@@ -15,3 +15,12 @@ def cachingEnabled():
 def parentClickable():
     ptool = getUtility(IPropertiesTool)
     return ptool.dropdown_properties.getProperty('enable_parent_clickable', True)
+
+def enableThumbs():
+    ptool = getUtility(IPropertiesTool)
+    return ptool.dropdown_properties.getProperty('enable_thumbs', True)
+    
+def enableDesc():
+    ptool = getUtility(IPropertiesTool)
+    return ptool.dropdown_properties.getProperty('enable_desc', True)
+

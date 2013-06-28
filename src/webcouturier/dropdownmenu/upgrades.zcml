@@ -1,7 +1,8 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
   xmlns:gs="http://namespaces.zope.org/genericsetup"
-  i18n_domain="collective.gallery">
+  i18n_domain="webcouturiere.dropdownmenu">
+
 
   <gs:upgradeStep
     title="Common Upgrade: apply default profile"
@@ -18,5 +19,14 @@
     destination="1010"
     handler=".upgrades.upgrade_1000_to_1010"
     profile="webcouturier.dropdownmenu:default"/>
-
+ 
+  <gs:upgradeStep
+    title="Upgrade with new settings in propertysheets"
+    description="Upgrade settings to include option to show image and description"
+    source="1011"
+    destination="1012"
+    handler=".upgrades.upgrade_1011_to_1012"
+    profile="webcouturier.dropdownmenu:default"/>
+    
+    
 </configure>

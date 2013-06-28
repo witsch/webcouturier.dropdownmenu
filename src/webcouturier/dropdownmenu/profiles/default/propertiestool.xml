@@ -5,5 +5,7 @@
   <property name="dropdown_depth" type="int">3</property>
   <property name="enable_caching" type="boolean">False</property>
   <property name="enable_parent_clickable" type="boolean">True</property>
+  <property name="enable_desc" type="boolean">False</property>
+  <property name="enable_thumbs" type="string">none</property>
  </object>
 </object>
