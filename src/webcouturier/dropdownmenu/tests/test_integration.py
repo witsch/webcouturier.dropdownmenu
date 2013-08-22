@@ -10,7 +10,7 @@ from Products.CMFCore.utils import getToolByName
 
 from webcouturier.dropdownmenu.browser.dropdown import DropdownMenuViewlet
 from webcouturier.dropdownmenu.tests.layer import DROPDOWNMENU_INTEGRATION, \
-                                           DROPDOWNMENU_BASIC_INTEGRATION
+    DROPDOWNMENU_BASIC_INTEGRATION
 
 
 class TestConfiglet(unittest.TestCase):
@@ -133,5 +133,5 @@ class TestINavigationRootDropdownmenu(unittest.TestCase):
     def test_dropdownmenus_content(self):
         # Tests the tree builder to aply nice with the INavigationRoot
         self.failIf('<a href="http://nohost/plone/folder-1"' in
-                     self.viewlet.getTabObject(self.rf_url),
+                    self.viewlet.getTabObject(self.rf_url),
                     "The dropdown menus don't respect the iNavigationRoot.")

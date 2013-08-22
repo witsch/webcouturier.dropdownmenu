@@ -9,6 +9,7 @@ from zope.interface import implements
 from webcouturier.dropdownmenu.browser.interfaces import IDropdownConfiguration
 from webcouturier.dropdownmenu import msg_fact as _
 
+
 class DropdownControlPanelAdapter(SchemaAdapterBase):
     adapts(IPloneSiteRoot)
     implements(IDropdownConfiguration)
@@ -27,6 +28,7 @@ class DropdownControlPanelAdapter(SchemaAdapterBase):
         IDropdownConfiguration['enable_desc'])
     enable_thumbs = ProxyFieldProperty(
         IDropdownConfiguration['enable_thumbs'])
+
 
 class DropdownControlPanel(ControlPanelForm):
     form_fields = FormFields(IDropdownConfiguration)

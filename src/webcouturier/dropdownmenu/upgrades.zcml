@@ -19,7 +19,7 @@
     destination="1010"
     handler=".upgrades.upgrade_1000_to_1010"
     profile="webcouturier.dropdownmenu:default"/>
- 
+
   <gs:upgradeStep
     title="Upgrade with new settings in propertysheets"
     description="Upgrade settings to include option to show image and description"
@@ -27,6 +27,6 @@
     destination="1012"
     handler=".upgrades.upgrade_1011_to_1012"
     profile="webcouturier.dropdownmenu:default"/>
-    
-    
+
+
 </configure>

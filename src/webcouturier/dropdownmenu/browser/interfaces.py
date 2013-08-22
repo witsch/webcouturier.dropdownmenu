@@ -3,6 +3,7 @@ from zope import schema
 from zope.interface import Interface
 from webcouturier.dropdownmenu import msg_fact as _
 
+
 class IDropdownConfiguration(Interface):
     """This interface defines the configlet for dropdown menus."""
 
@@ -55,7 +56,6 @@ class IDropdownConfiguration(Interface):
         default='None',
         vocabulary="webcouturier.dropdownmenu.SizeVocabulary",
         )
-        
 
 
 class IDropdownSpecific(IDefaultPloneLayer):

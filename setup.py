@@ -5,15 +5,15 @@ version = '2.3.2dev'
 setup(name='webcouturier.dropdownmenu',
       version=version,
       description="Dropdown menus for global navigation in Plone",
-      long_description=open("README.rst").read()+ '\n' +
-                       open("docs/INSTALL.txt").read()+ '\n' +
-                       open('CHANGES.txt').read(),
+      long_description=(open("README.rst").read()+ '\n' +
+                        open("docs/INSTALL.txt").read()+ '\n' +
+                        open('CHANGES.txt').read()),
       classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        "License :: OSI Approved :: GNU General Public License (GPL)",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+          "Framework :: Plone",
+          "Programming Language :: Python",
+          "License :: OSI Approved :: GNU General Public License (GPL)",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          ],
       keywords='web couturier dropdown menu navigation',
       author='Denys Mishunov',
       author_email='denys.mishunov@gmail.com',

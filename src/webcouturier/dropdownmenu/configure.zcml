@@ -30,8 +30,8 @@
         title="Dropdown menus for Twitter Bootstrap"
         description="Modify the install to work with Twitter Bootstrap."
         provides="Products.GenericSetup.interfaces.EXTENSION"/>
-        
-        
+
+
     <utility
         provides="zope.schema.interfaces.IVocabularyFactory"
         component=".vocabularies.SizeVocabulary"

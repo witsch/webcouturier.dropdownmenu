@@ -7,6 +7,7 @@ def common(context):
     setup = getToolByName(context, 'portal_setup')
     setup.runAllImportStepsFromProfile(PROFILE)
 
+
 def upgrade_1000_to_1010(context):
     """If dropdownmenu_sunburst is after dropdownmenu in sunburst skin,
     reorder them"""
@@ -23,6 +24,7 @@ def upgrade_1000_to_1010(context):
         sels = skin._getSelections()
         sels['Sunburst Theme'] = path
 
+
 def upgrade_1011_to_1012(context):
     """Adds setting to portal properties"""
     pprops = getToolByName(context, 'portal_properties')
@@ -30,8 +32,8 @@ def upgrade_1011_to_1012(context):
     try:
         props.manage_addProperty(id='enable_desc', value=False, type='boolean')
     except:
-        pass    
+        pass
     try:
         props.manage_addProperty(id='enable_thumbs', value='none', type='string')
     except:
-        pass    
+        pass
