@@ -3,13 +3,7 @@ from Products.CMFCore.utils import getToolByName
 
 from webcouturier.dropdownmenu import msg_fact as _
 
-try:
-    #plone 4.3
-    from zope.component.hooks import getSite
-    getSite  # pyflakes
-except:
-    #Plone 3, probably
-    from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 
 
 def format_size(size):
