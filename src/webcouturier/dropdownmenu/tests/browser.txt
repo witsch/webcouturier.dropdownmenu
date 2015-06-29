@@ -47,7 +47,7 @@ There are links to several folders:
     >>> folder_url = 'http://nohost/plone/folder-0/sub-0/sub-sub-0'
     >>> browser.getLink(url=folder_url).url == folder_url
     True
-    
+
 
 Now change the enable_parent_clickable setting so parent folders with
 children are not clickable anymore.  They are just hoverable, which
@@ -107,4 +107,4 @@ one).
     True
     >>> import transaction
     >>> transaction.commit()
-    
+
