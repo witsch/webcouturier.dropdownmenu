@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from Products.CMFCore.utils import getToolByName
 
