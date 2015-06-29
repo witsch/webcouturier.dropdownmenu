@@ -26,6 +26,6 @@ def SizeVocabulary(context):
                                 token=format_size(pair),
                                 title=pair) for pair in sizes
                      if not format_size(pair) in ['preview', 'large']]
-            image_terms =image_terms + terms
+            image_terms = image_terms + terms
 
         return SimpleVocabulary(image_terms)
