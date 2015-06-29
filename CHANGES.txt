@@ -6,7 +6,7 @@ Changelog
 2.3.2dev (unreleased)
 ---------------------
 
-- Explicitly drop support for Plone 4.0.
+- Fix package dependencies and metadata; explicitly drop support for Plone 4.0.
   [hvelarde]
 
 - Added option to show image and description in dropdownmenu [espen]
