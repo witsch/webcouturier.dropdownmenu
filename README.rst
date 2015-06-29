@@ -1,6 +1,15 @@
 webcouturier.dropdownmenu
 =========================
 
+.. image:: http://img.shields.io/pypi/v/webcouturier.dropdownmenu.svg
+    :target: https://pypi.python.org/pypi/webcouturier.dropdownmenu
+
+.. image:: https://img.shields.io/travis/collective/webcouturier.dropdownmenu/master.svg
+    :target: http://travis-ci.org/collective/webcouturier.dropdownmenu
+
+.. image:: https://img.shields.io/coveralls/collective/webcouturier.dropdownmenu/master.svg
+    :target: https://coveralls.io/r/collective/webcouturier.dropdownmenu
+
 Overview
 --------
 
@@ -34,15 +43,15 @@ Tips
 
   What you need is to customize the ``browser/dropdown.js`` file like the
   following:
-  
+
   ::
-  
+
     jQuery(function ($) {
         $('#portal-globalnav ul .noClick').click(function (e) {
             e.preventDefault();
         });
     });
-  
+
   Note that we have added **ul** in the jQuery selector. This will stop
   clickability of the links in the dropdowns only, but not the section's link
   in the global navigation bar itself.
@@ -57,7 +66,7 @@ Authors:
 Contributors:
 
 - Wichert Akkerman [wichert] `Simplon`_
-- JeanMichel FRANCOIS [toutpt] `Makina-Corpus`_ 
+- JeanMichel FRANCOIS [toutpt] `Makina-Corpus`_
 - Thomas Desvarin [thomasdesvenain] `Ecréall`_
 - Maurits van Rees [maurits]
 - David Glick [davisagli]
