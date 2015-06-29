@@ -27,18 +27,18 @@ class TestConfiglet(unittest.TestCase):
 
     def test_control_panel(self):
         cp = getToolByName(self.portal, "portal_controlpanel")
-        self.failUnless('DropdownConfiguration' in [a.getAction(self)['id']
+        self.assertIn('DropdownConfiguration', [a.getAction(self)['id']
                          for a in cp.listActions()])
 
     def test_property_sheet_availability(self):
-        self.failUnless('dropdown_properties' in self.ps.objectIds())
+        self.assertIn('dropdown_properties', self.ps.objectIds())
 
     def test_settings_available(self):
         settings = ['dropdown_depth',
                     'enable_caching',
                     'enable_parent_clickable']
         for setting in settings:
-            self.failUnless(self.dmprops.hasProperty(setting))
+            self.assertTrue(self.dmprops.hasProperty(setting))
 
 
 class TestDropdownmenu(unittest.TestCase):
@@ -58,7 +58,7 @@ class TestDropdownmenu(unittest.TestCase):
         viewlet.update()
 
         for folder_id in self.root_folders_ids:
-            self.failUnless(folder_id in [tab['id'] for tab in
+            self.assertIn(folder_id, [tab['id'] for tab in
                                           viewlet.portal_tabs])
 
         setRoles(portal, TEST_USER_ID, ['Member'])
@@ -83,21 +83,21 @@ class TestDropdownmenu(unittest.TestCase):
 
     def test_dropdownmenus_available(self):
         rf_url = self.addSubFolders()
-        self.failIf(self.viewlet.getTabObject(rf_url) == '',
+        self.assertNotEqual(self.viewlet.getTabObject(rf_url), '',
                     "We don't have the sub-folders available in the \
                      global navigation")
 
     def test_subfolders_in_dropdownmenus(self):
         rf_url = self.addSubFolders()
-        self.failUnless('<a href="http://nohost/plone/folder-0/sub-0"'
-                       in self.viewlet.getTabObject(rf_url),
+        self.assertIn('<a href="http://nohost/plone/folder-0/sub-0"',
+                       self.viewlet.getTabObject(rf_url),
                        "The sub-folder's URL is not available in the \
                        global navigation")
 
     def test_leaks_in_dropdownmenus(self):
         rf_url = self.addSubFolders()
-        self.failIf('<a href="http://nohost/plone/folder-0"'
-                    in self.viewlet.getTabObject(rf_url),
+        self.assertNotIn('<a href="http://nohost/plone/folder-0"',
+                    self.viewlet.getTabObject(rf_url),
                     "We have the leakage of the top level folders in the \
                     dropdownmenus")
 
@@ -126,12 +126,12 @@ class TestINavigationRootDropdownmenu(unittest.TestCase):
         self.rf_url = self.f1.absolute_url()
 
     def test_no_root_folder(self):
-        self.failIf('<a href="http://nohost/plone/folder-0"'
-                    in self.viewlet.getTabObject(self.rf_url),
+        self.assertNotIn('<a href="http://nohost/plone/folder-0"',
+                    self.viewlet.getTabObject(self.rf_url),
                     "The root folder itself is in the globalnavigation")
 
     def test_dropdownmenus_content(self):
         # Tests the tree builder to aply nice with the INavigationRoot
-        self.failIf('<a href="http://nohost/plone/folder-1"' in
+        self.assertNotIn('<a href="http://nohost/plone/folder-1"',
                     self.viewlet.getTabObject(self.rf_url),
                     "The dropdown menus don't respect the iNavigationRoot.")
