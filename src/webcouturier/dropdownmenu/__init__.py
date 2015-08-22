@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from AccessControl import allow_module
 from zope.i18nmessageid import MessageFactory
 

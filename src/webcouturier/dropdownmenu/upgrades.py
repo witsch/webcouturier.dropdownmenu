@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
 
 PROFILE = 'profile-webcouturier.dropdownmenu:default'
@@ -16,7 +17,7 @@ def upgrade_1000_to_1010(context):
     dds = layers.index('dropdownmenu_sunburst')
     dd = layers.index('dropdownmenu')
     if dds > dd:
-        #switch them
+        # switch them
         layers[dd] = 'dropdownmenu_sunburst'
         layers[dds] = 'dropdownmenu'
         path = ','.join(layers)

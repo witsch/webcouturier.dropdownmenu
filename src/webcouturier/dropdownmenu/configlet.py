@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.CMFCore.interfaces import IPropertiesTool
 from Products.CMFDefault.formlib.schema import ProxyFieldProperty
 from Products.CMFDefault.formlib.schema import SchemaAdapterBase
