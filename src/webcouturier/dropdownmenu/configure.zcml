@@ -17,8 +17,6 @@
     <include package=".browser" />
     <include file="upgrades.zcml" />
 
-    <adapter factory=".configlet.DropdownControlPanelAdapter" />
-
     <genericsetup:registerProfile
         name="default"
         title="Dropdown menu"
