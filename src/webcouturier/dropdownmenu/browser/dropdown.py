@@ -12,6 +12,7 @@ from plone.app.portlets.portlets.navigation import Assignment
 from zope.component import getMultiAdapter
 from zope.interface import implements
 from plone import api
+from Products.CMFCore.interfaces import IContentish
 
 #
 # Import ram.cache feature and xhmtl_compression (removes whitespace and so on)
@@ -28,9 +29,7 @@ class DropdownQueryBuilder(NavtreeQueryBuilder):
 
     def __init__(self, context):
         NavtreeQueryBuilder.__init__(self, context)
-        dropdown_properties = getToolByName(
-            context, 'portal_properties').dropdown_properties
-        dropdown_depth = dropdown_properties.getProperty('dropdown_depth', 3)
+        dropdown_depth = api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.dropdown_depth')
         self.query['path'] = {'query': '/'.join(context.getPhysicalPath()),
                               'navtree_start': 1,
                               'depth': dropdown_depth}
@@ -114,13 +113,10 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
         context = aq_inner(self.context)
         portal_props = getToolByName(context, 'portal_properties')
         self.properties = portal_props.navtree_properties
-        self.dropdown_properties = portal_props.dropdown_properties
-        self.enable_caching = self.dropdown_properties.getProperty(
-            'enable_caching', False)
-        self.enable_parent_clickable = self.dropdown_properties.getProperty(
-            'enable_parent_clickable', True)
+        self.enable_caching = api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_caching')
+        self.enable_parent_clickable = api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_parent_clickable')
         self.navroot_path = getNavigationRoot(context)
-        uid = api.content.get_uuid(obj=context) if context != api.portal.get() else None
+        uid = api.content.get_uuid(obj=context) if IContentish.providedBy(context) else None
         self.data = Assignment(root_uid=uid)
 
     def getTabObject(self, tabUrl='', tabPath=None):

@@ -1,0 +1,25 @@
+.plone-navbar-nav > li {
+    &.active:after,
+    &:hover:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      z-index: 999;
+    }
+  .submenu {
+    display: none;
+    padding-bottom: 10px;
+    z-index: 9999;
+    a {
+      display: block;
+      line-height: 1.56em;
+      padding: 5px 10px 3px 12px;
+      position: relative;
+      &:before {
+        margin-right: 10px;
+      }
+    }
+  }
+}

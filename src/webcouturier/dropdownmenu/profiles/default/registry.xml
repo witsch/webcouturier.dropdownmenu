@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<registry>
+	<records interface="webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration" />	
+	
+	<records prefix="plone.resources/dropdown"
+	          interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+	    <value key="css">
+	      <element>++resource++dropdown.less</element>
+	    </value>
+	</records>
+</registry>
