@@ -2,10 +2,19 @@
 <registry>
 	<records interface="webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration" />	
 	
-	<records prefix="plone.resources/dropdown"
+	<records prefix="plone.resources/webcouturier.dropdownmenu"
 	          interface='Products.CMFPlone.interfaces.IResourceRegistry'>
 	    <value key="css">
 	      <element>++resource++dropdown.less</element>
 	    </value>
 	</records>
+	 <records prefix="plone.bundles/webcouturier.dropdownmenu"
+	            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+	    <value key="resources">
+	      <element>webcouturier.dropdownmenu</element>
+	    </value>
+	    <value key="depends">plone</value>
+	    <value key="enabled">True</value>
+	    <value key="compile">True</value>
+	  </records>
 </registry>
