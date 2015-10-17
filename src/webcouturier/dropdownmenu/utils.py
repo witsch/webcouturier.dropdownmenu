@@ -4,25 +4,20 @@ from zope.component import getUtility
 
 
 def getDropdownDepth():
-    ptool = getUtility(IPropertiesTool)
-    return ptool.dropdown_properties.getProperty('dropdown_depth')
+    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.dropdown_depth')
 
 
 def cachingEnabled():
-    ptool = getUtility(IPropertiesTool)
-    return ptool.dropdown_properties.getProperty('enable_caching', False)
+    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_caching')
 
 
 def parentClickable():
-    ptool = getUtility(IPropertiesTool)
-    return ptool.dropdown_properties.getProperty('enable_parent_clickable', True)
+    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_parent_clickable')
 
 
 def enableThumbs():
-    ptool = getUtility(IPropertiesTool)
-    return ptool.dropdown_properties.getProperty('enable_thumbs', True)
+    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_thumbs')
 
 
 def enableDesc():
-    ptool = getUtility(IPropertiesTool)
-    return ptool.dropdown_properties.getProperty('enable_desc', True)
+    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_desc')
