@@ -11,6 +11,7 @@ from plone.app.layout.viewlets import common
 from plone.app.portlets.portlets.navigation import Assignment
 from zope.component import getMultiAdapter
 from zope.interface import implements
+from plone import api
 
 #
 # Import ram.cache feature and xhmtl_compression (removes whitespace and so on)
@@ -119,7 +120,8 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
         self.enable_parent_clickable = self.dropdown_properties.getProperty(
             'enable_parent_clickable', True)
         self.navroot_path = getNavigationRoot(context)
-        self.data = Assignment(root=self.navroot_path)
+        uid = api.content.get_uuid(obj=context) if context != api.portal.get() else None
+        self.data = Assignment(root_uid=uid)
 
     def getTabObject(self, tabUrl='', tabPath=None):
         if tabUrl == self.portal_state.navigation_root_url():

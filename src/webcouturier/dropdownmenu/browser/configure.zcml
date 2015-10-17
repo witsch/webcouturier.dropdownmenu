@@ -13,7 +13,7 @@
     <!-- Override global sections viewlet -->
     <browser:viewlet
         name="plone.global_sections"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        manager="plone.app.layout.viewlets.interfaces.IMainNavigation"
         class=".dropdown.DropdownMenuViewlet"
         layer=".interfaces.IDropdownSpecific"
         permission="zope2.View"
