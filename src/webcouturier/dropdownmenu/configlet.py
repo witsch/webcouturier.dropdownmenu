@@ -9,7 +9,7 @@ class DropdownControlPanelForm(RegistryEditForm):
 
     id = "DropdownControlPanel"
     schema = IDropdownConfiguration
-    schema_prefix = "addons"
+    schema_prefix = "webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration"
 
     label = _(u"A dropdown menu configuration.", default=u"A dropdown menu configuration.")
     description = _(
