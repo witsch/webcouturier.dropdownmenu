@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from Products.CMFCore.interfaces import IPropertiesTool
-from zope.component import getUtility
 from plone import api
 
 

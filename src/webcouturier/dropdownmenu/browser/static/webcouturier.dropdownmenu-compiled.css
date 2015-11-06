@@ -1,0 +1,62 @@
+/* line 4, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+.plone-navbar-nav li:hover > .submenu {
+  display: block;
+}
+/* line 7, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+.plone-navbar-nav li.active:after,
+.plone-navbar-nav li:hover:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  width: 100%;
+  z-index: 999;
+}
+/* line 16, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+.plone-navbar-nav li .submenu {
+  background-color: #007bb3;
+  display: none;
+  list-style: none;
+  padding-left: 0;
+  padding-bottom: 0;
+  position: absolute;
+  z-index: 9999;
+}
+/* line 24, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+.plone-navbar-nav li .submenu a {
+  color: white;
+  display: block;
+  line-height: 20px;
+  min-width: 14em;
+  padding: 15px 10px 15px 12px;
+  position: relative;
+}
+/* line 31, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+.plone-navbar-nav li .submenu a:hover {
+  background-color: #9abdd6;
+  text-decoration: none;
+}
+/* line 35, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+.plone-navbar-nav li .submenu a:before {
+  margin-right: 10px;
+}
+/* line 39, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+.plone-navbar-nav li .submenu li {
+  position: relative;
+  float: left;
+}
+/* line 42, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+.plone-navbar-nav li .submenu li:hover ul {
+  top: 0;
+  left: 100%;
+}
+@media (max-width: 768px) {
+  /* line 52, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+  .plone-navbar-nav li .submenu {
+    display: none;
+  }
+  /* line 55, http://localhost:8080/Plone/++plone++dropdown/dropdown.less */
+  .plone-navbar-nav li:hover > .submenu {
+    display: none;
+  }
+}
