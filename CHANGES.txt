@@ -27,6 +27,12 @@ Changelog
 - First iteration to port codebase to be compatible with Plone 5
   [lewicki]
 
+- Update buildout to Plone 5
+  [davilima6]
+
+- Register resource directory to enable csscompilation entry in registry.xml
+  [davilima6]
+
 
 2.3.1 (2012-07-26)
 ------------------

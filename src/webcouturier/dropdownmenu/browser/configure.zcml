@@ -1,14 +1,13 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
-    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="webcouturier.dropdownmenu">
 
-    <browser:resource
-        name="dropdown.less"
-        file="dropdown.less"
-        />
+    <!-- Publish static files -->
+    <plone:static name="dropdown" type="plone" directory="static" />
 
     <!-- Override global sections viewlet -->
     <browser:viewlet
