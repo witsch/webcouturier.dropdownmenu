@@ -24,6 +24,9 @@ Changelog
   objects. Can happen with standard_error_pages
   [do3cc]
 
+- First iteration to port codebase to be compatible with Plone 5
+  [lewicki]
+
 
 2.3.1 (2012-07-26)
 ------------------
