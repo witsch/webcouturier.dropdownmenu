@@ -116,7 +116,12 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
         self.enable_caching = api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_caching')
         self.enable_parent_clickable = api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_parent_clickable')
         self.navroot_path = getNavigationRoot(context)
-        uid = api.content.get_uuid(obj=context) if IContentish.providedBy(context) else None
+        try:
+            uid = api.content.get_uuid(obj=context) if IContentish.providedBy(context) else None
+        except TypeError:
+            # ArcheTypes (such as PFG FormFolder) have no UID yet when the
+            # factory gets called.
+            uid = None
         self.data = Assignment(root_uid=uid)
 
     def getTabObject(self, tabUrl='', tabPath=None):
