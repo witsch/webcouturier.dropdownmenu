@@ -10,7 +10,7 @@ from plone.app.layout.navigation.root import getNavigationRoot
 from plone.app.layout.viewlets import common
 from plone.app.portlets.portlets.navigation import Assignment
 from zope.component import getMultiAdapter
-from zope.interface import implements
+from zope.interface import implementer
 from plone import api
 from Products.CMFCore.interfaces import IContentish
 
@@ -22,6 +22,9 @@ from plone.memoize.compress import xhtml_compress
 
 from webcouturier.dropdownmenu.browser.interfaces import IDropdownMenuViewlet
 
+REGKEY = 'webcouturier.dropdownmenu.browser.interfaces.' \
+         'IDropdownConfiguration.{0}'
+
 
 class DropdownQueryBuilder(NavtreeQueryBuilder):
     """Build a folder tree query suitable for a dropdownmenu
@@ -29,17 +32,21 @@ class DropdownQueryBuilder(NavtreeQueryBuilder):
 
     def __init__(self, context):
         NavtreeQueryBuilder.__init__(self, context)
-        dropdown_depth = api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.dropdown_depth')
-        self.query['path'] = {'query': '/'.join(context.getPhysicalPath()),
-                              'navtree_start': 1,
-                              'depth': dropdown_depth}
+        dropdown_depth = api.portal.get_registry_record(
+            REGKEY.format('dropdown_depth')
+        )
+        self.query['path'] = {
+            'query': '/'.join(context.getPhysicalPath()),
+            'navtree_start': 1,
+            'depth': dropdown_depth
+        }
 
 
+@implementer(IDropdownMenuViewlet)
 class DropdownMenuViewlet(common.GlobalSectionsViewlet):
     """A custom version of the global navigation class that has to have
        dropdown menus for global navigation tabs objects
     """
-    implements(IDropdownMenuViewlet)
 
     #
     # Define a cache key: every instance (probabily only one per site,
@@ -113,10 +120,17 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
         context = aq_inner(self.context)
         portal_props = getToolByName(context, 'portal_properties')
         self.properties = portal_props.navtree_properties
-        self.enable_caching = api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_caching')
-        self.enable_parent_clickable = api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_parent_clickable')
+        self.enable_caching = api.portal.get_registry_record(
+            REGKEY.format('enable_caching')
+        )
+        self.enable_parent_clickable = api.portal.get_registry_record(
+            REGKEY.format('enable_parent_clickable')
+        )
         self.navroot_path = getNavigationRoot(context)
-        uid = api.content.get_uuid(obj=context) if IContentish.providedBy(context) else None
+        if IContentish.providedBy(context):
+            uid = api.content.get_uuid(obj=context)
+        else:
+            uid = None
         self.data = Assignment(root_uid=uid)
 
     def getTabObject(self, tabUrl='', tabPath=None):
