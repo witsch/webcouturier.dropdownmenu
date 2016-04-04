@@ -1,26 +1,21 @@
 # -*- coding: utf-8 -*-
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone import api
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from plone.app.layout.navigation.navtree import buildFolderTree
 from plone.app.layout.navigation.root import getNavigationRoot
 from plone.app.layout.viewlets import common
 from plone.app.portlets.portlets.navigation import Assignment
+from plone.memoize.compress import xhtml_compress
+from plone.memoize.ram import cache
+from Products.CMFCore.interfaces import IContentish
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from webcouturier.dropdownmenu.browser.interfaces import IDropdownMenuViewlet
 from zope.component import getMultiAdapter
 from zope.interface import implementer
-from plone import api
-from Products.CMFCore.interfaces import IContentish
-
-#
-# Import ram.cache feature and xhmtl_compression (removes whitespace and so on)
-#
-from plone.memoize.ram import cache
-from plone.memoize.compress import xhtml_compress
-
-from webcouturier.dropdownmenu.browser.interfaces import IDropdownMenuViewlet
 
 REGKEY = 'webcouturier.dropdownmenu.browser.interfaces.' \
          'IDropdownConfiguration.{0}'
@@ -127,9 +122,15 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
             REGKEY.format('enable_parent_clickable')
         )
         self.navroot_path = getNavigationRoot(context)
-        if IContentish.providedBy(context):
-            uid = api.content.get_uuid(obj=context)
-        else:
+        self.navroot_path = getNavigationRoot(context)
+        try:
+            if IContentish.providedBy(context):
+                uid = api.content.get_uuid(obj=context)
+            else:
+                uid = None
+        except TypeError:
+            # ArcheTypes (such as PFG FormFolder) have no UID yet when the
+            # factory gets called.
             uid = None
         self.data = Assignment(root_uid=uid)
 

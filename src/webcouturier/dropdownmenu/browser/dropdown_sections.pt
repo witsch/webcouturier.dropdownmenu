@@ -24,7 +24,11 @@
             tal:define="selected_tab python:view.selected_portal_tab">
             <tal:tabs tal:repeat="tab portal_tabs">
               <li tal:define="tid tab/id;
+<<<<<<< HEAD
                               subitems python:view.getTabObject(tabUrl=tab['url'], tabPath=tab.get('path'))"
+=======
+                              subitems python:view.getTabObject(tabUrl = tab['url'], tabPath = tab.get('path'))"
+>>>>>>> fulv-noicons
                   tal:attributes="id string:portaltab-${tid};
                                   class python:selected_tab==tid and 'selected' or nothing">
                   <a href=""
