@@ -1,10 +1,12 @@
 Changelog
 =========
 
-(name of developer listed in brackets)
 
-2.3.2dev (unreleased)
+2.4.0dev (unreleased)
 ---------------------
+
+- Plone 5 compatibility
+  [davilima6, fulv, jensens, lewecki]
 
 - Add Brazilian Portuguese translation.
   [hvelarde]

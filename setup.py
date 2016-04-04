@@ -1,22 +1,21 @@
 from setuptools import setup, find_packages
 
-version = '2.3.2dev'
+version = '2.4.0dev0'
 
 setup(name='webcouturier.dropdownmenu',
       version=version,
       description="Dropdown menus for global navigation in Plone",
       long_description=(open("README.rst").read()+ '\n' +
                         open("docs/INSTALL.txt").read()+ '\n' +
-                        open('CHANGES.txt').read()),
+                        open('CHANGES.rst').read()),
       classifiers=[
           'Development Status :: 5 - Production/Stable',
           'Environment :: Web Environment',
-          'Framework :: Plone :: 4.2',
           'Framework :: Plone :: 4.3',
+          'Framework :: Plone :: 5.0',
           'Framework :: Plone',
           "License :: OSI Approved :: GNU General Public License (GPL)",
           'Operating System :: OS Independent',
-          'Programming Language :: Python :: 2.6',
           'Programming Language :: Python :: 2.7',
           'Programming Language :: Python',
           'Topic :: Software Development :: Libraries :: Python Modules',
