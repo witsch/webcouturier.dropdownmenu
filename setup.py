@@ -1,12 +1,14 @@
-from setuptools import setup, find_packages
+# -*- coding: utf-8 -*-
+from setuptools import find_packages
+from setuptools import setup
 
-version = '2.4.0dev0'
+version = '3.0.0.dev0'
 
 setup(name='webcouturier.dropdownmenu',
       version=version,
       description="Dropdown menus for global navigation in Plone",
-      long_description=(open("README.rst").read()+ '\n' +
-                        open("docs/INSTALL.txt").read()+ '\n' +
+      long_description=(open("README.rst").read() + '\n' +
+                        open("docs/INSTALL.txt").read() + '\n' +
                         open('CHANGES.rst').read()),
       classifiers=[
           'Development Status :: 5 - Production/Stable',
@@ -19,14 +21,14 @@ setup(name='webcouturier.dropdownmenu',
           'Programming Language :: Python :: 2.7',
           'Programming Language :: Python',
           'Topic :: Software Development :: Libraries :: Python Modules',
-          ],
+      ],
       keywords='web couturier dropdown menu navigation',
       author='Denys Mishunov',
       author_email='denys.mishunov@gmail.com',
       url='http://plone.org/products/webcouturier-dropdownmenu',
       license='GPL',
-      packages = find_packages('src'),
-      package_dir = {'': 'src'},
+      packages=find_packages('src'),
+      package_dir={'': 'src'},
       namespace_packages=['webcouturier'],
       include_package_data=True,
       zip_safe=False,
@@ -51,11 +53,11 @@ setup(name='webcouturier.dropdownmenu',
       ],
       extras_require={
           'test': [
-            'plone.app.testing',
-            'plone.testing',
-            'transaction',
-            'unittest2',
-        ],
+              'plone.app.testing',
+              'plone.testing',
+              'transaction',
+              'unittest2',
+          ],
       },
       entry_points="""
       [z3c.autoinclude.plugin]

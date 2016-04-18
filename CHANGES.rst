@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-2.4.0dev (unreleased)
----------------------
+3.0.0 (unreleased)
+------------------
 
 - Plone 5 compatibility
   [davilima6, fulv, jensens, lewecki]

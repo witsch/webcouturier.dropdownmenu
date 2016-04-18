@@ -73,6 +73,7 @@ Contributors:
 - Matt Halstead [matthal]
 - Leonardo J. Caballero G. [macagua]
 - Florian Schulze [fschulze]
+- Jens Klein [jensens]
 
 
 .. _Makina-Corpus: http://www.makina-corpus.com
