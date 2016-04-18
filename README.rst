@@ -15,34 +15,34 @@ Overview
 
 The dropdown solution for Plone since 2007.
 
-You will get the dropdown menus for those items in global navigation that have
-the subitems. Submenus are built based on the same policy as the Site Map, so
-it will show the same tree as you would get in the Site Map or navigation
-portlet being in appropriate section.
+You will get the dropdown menus for those items in global navigation that have the subitems.
+Submenus are built based on the same policy as the Site Map,
+so it will show the same tree as you would get in the Site Map or navigation portlet being in appropriate section.
+
 
 How it works
 ------------
 
-Dropdown menus are build based on the same policy as the Site Map, so it will
-show the same tree as you would get in the Site Map or navigation portlet
-being in appropriate section. This means - no **private** objects for
-anonymouses; no objects, excluded from the navigation - exactly the same
-behavior you would expect from Site Map or navigation portlet.
+Dropdown menus are build based on the same policy as the Site Map,
+so it will show the same tree as you would get in the Site Map or navigation portlet being in appropriate section.
+This means - no **private** objects for anonymouses;
+no objects, excluded from the navigation -
+exactly the same behavior you would expect from Site Map or navigation portlet.
+
 
 Installation
 ------------
 
 As any addons, please follow the official install documentation:
-http://plone.org/documentation/kb/add-ons/installing
+http://docs.plone.org/manage/installing/installing_addons.html
+
 
 Tips
 ----
 
-- **While disabling clicking the links with children, I want the links in the
-  global navigation bar to be clickable nevertheless.**
+While disabling clicking the links with children, I want the links in the global navigation bar to be clickable nevertheless
 
-  What you need is to customize the ``browser/dropdown.js`` file like the
-  following:
+  What you need is to customize the ``browser/static/dropdown.js`` file like the following:
 
   ::
 
