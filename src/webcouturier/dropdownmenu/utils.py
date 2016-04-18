@@ -1,22 +1,28 @@
 # -*- coding: utf-8 -*-
 from plone import api
 
+_WC = 'webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.{0}'
+
+
+def _get_cfg(name):
+    return api.portal.get_registry_record(_WC.format(name))
+
 
 def getDropdownDepth():
-    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.dropdown_depth')
+    return _get_cfg('dropdown_depth')
 
 
 def cachingEnabled():
-    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_caching')
+    return _get_cfg('enable_caching')
 
 
 def parentClickable():
-    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_parent_clickable')
+    return _get_cfg('enable_parent_clickable')
 
 
 def enableThumbs():
-    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_thumbs')
+    return _get_cfg('enable_thumbs')
 
 
 def enableDesc():
-    return api.portal.get_registry_record('webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_desc')
+    return _get_cfg('enable_desc')

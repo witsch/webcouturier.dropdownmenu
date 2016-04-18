@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from plone.theme.interfaces import IDefaultPloneLayer
+from webcouturier.dropdownmenu import msg_fact as _
 from zope import schema
 from zope.interface import Interface
-from webcouturier.dropdownmenu import msg_fact as _
 
 
 class IDropdownConfiguration(Interface):

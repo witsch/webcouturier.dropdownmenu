@@ -35,6 +35,10 @@ def upgrade_1011_to_1012(context):
     except:
         pass
     try:
-        props.manage_addProperty(id='enable_thumbs', value='none', type='string')
+        props.manage_addProperty(
+            id='enable_thumbs',
+            value='none',
+            type='string'
+        )
     except:
         pass

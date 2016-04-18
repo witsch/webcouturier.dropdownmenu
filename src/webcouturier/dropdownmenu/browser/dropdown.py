@@ -13,12 +13,10 @@ from Products.CMFCore.interfaces import IContentish
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from webcouturier.dropdownmenu import utils
 from webcouturier.dropdownmenu.browser.interfaces import IDropdownMenuViewlet
 from zope.component import getMultiAdapter
 from zope.interface import implementer
-
-REGKEY = 'webcouturier.dropdownmenu.browser.interfaces.' \
-         'IDropdownConfiguration.{0}'
 
 
 class DropdownQueryBuilder(NavtreeQueryBuilder):
@@ -27,13 +25,10 @@ class DropdownQueryBuilder(NavtreeQueryBuilder):
 
     def __init__(self, context):
         NavtreeQueryBuilder.__init__(self, context)
-        dropdown_depth = api.portal.get_registry_record(
-            REGKEY.format('dropdown_depth')
-        )
         self.query['path'] = {
             'query': '/'.join(context.getPhysicalPath()),
             'navtree_start': 1,
-            'depth': dropdown_depth
+            'depth': utils.getDropdownDepth()
         }
 
 
@@ -115,12 +110,8 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
         context = aq_inner(self.context)
         portal_props = getToolByName(context, 'portal_properties')
         self.properties = portal_props.navtree_properties
-        self.enable_caching = api.portal.get_registry_record(
-            REGKEY.format('enable_caching')
-        )
-        self.enable_parent_clickable = api.portal.get_registry_record(
-            REGKEY.format('enable_parent_clickable')
-        )
+        self.enable_caching = utils.cachingEnabled()
+        self.enable_parent_clickable = utils.parentClickable()
         self.navroot_path = getNavigationRoot(context)
         self.navroot_path = getNavigationRoot(context)
         try:

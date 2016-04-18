@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from Products.CMFCore.utils import getToolByName
-
 from webcouturier.dropdownmenu import msg_fact as _
-
 from zope.component.hooks import getSite
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 def format_size(size):
