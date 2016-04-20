@@ -8,6 +8,9 @@ Changelog
 - Plone 5 compatibility
   [davilima6, fulv, jensens, lewecki]
 
+- Default value none (not None) for enable_thumbs setting
+  [jensens]
+
 - Add Brazilian Portuguese translation.
   [hvelarde]
 

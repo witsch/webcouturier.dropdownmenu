@@ -57,7 +57,7 @@ class IDropdownConfiguration(Interface):
     enable_thumbs = schema.Choice(
         title=_(u'label_size', default=u'Size'),
         description=_(u'description_size', default=u'The size of the icon'),
-        default='None',
+        default='none',
         vocabulary='webcouturier.dropdownmenu.SizeVocabulary',
     )
 
