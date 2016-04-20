@@ -9,6 +9,7 @@
   <p class="hiddenStructure" i18n:translate="heading_sections">Navigation</p>
   <nav class="plone-navbar" id="portal-globalnav-wrapper" role="navigation">
     <div class="container">
+
       <div class="plone-navbar-header">
         <button type="button" class="plone-navbar-toggle" data-toggle="collapse" data-target="#portal-globalnav-collapse">
           <span class="sr-only">Toggle navigation</span>
@@ -19,14 +20,17 @@
       </div>
 
       <div class="plone-collapse plone-navbar-collapse" id="portal-globalnav-collapse">
-        <ul class="plone-nav plone-navbar-nav"
-            id="portal-globalnav"
+        <ul id="portal-globalnav"
+            class="plone-nav plone-navbar-nav navTreeRoot"
             tal:define="selected_tab python:view.selected_portal_tab">
             <tal:tabs tal:repeat="tab portal_tabs">
               <li tal:define="tid tab/id;
-                              subitems python:view.getTabObject(tabUrl=tab['url'], tabPath=tab.get('path'))"
+                              subitems python:view.getTabObject(tabUrl=tab['url'], tabPath=tab.get('path'));
+                              class_position python:'menu-position-{0}'.format(repeat.tab.number);
+                              class_children python:' hasDropDown' if subitems else '';
+                              class_selected python:' selected' if selected_tab==tid else ''"
                   tal:attributes="id string:portaltab-${tid};
-                                  class python:selected_tab==tid and 'selected' or nothing">
+                                  class string:${class_position}${class_children}${class_selected}">
                   <a href=""
                      tal:content="tab/name"
                      tal:attributes="href tab/url;

@@ -8,6 +8,9 @@ Changelog
 - Plone 5 compatibility
   [davilima6, fulv, jensens, lewecki]
 
+- Add some css classes to make styling easier.
+  [jensens]
+
 - Default value none (not None) for enable_thumbs setting
   [jensens]
 

@@ -1,14 +1,16 @@
 <?xml version="1.0"?>
 <registry>
-  <records interface="webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration" /> 
-  <records prefix="plone.resources/webcouturier.dropdownmenu"
-           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+  <records interface="webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration" />
+  <records
+      interface="Products.CMFPlone.interfaces.IResourceRegistry"
+      prefix="plone.resources/webcouturier.dropdownmenu">
     <value key="css">
       <element>++plone++dropdown/dropdown.less</element>
     </value>
   </records>
-  <records prefix="plone.bundles/webcouturier.dropdownmenu"
-           interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+  <records
+      interface="Products.CMFPlone.interfaces.IBundleRegistry"
+      prefix="plone.bundles/webcouturier.dropdownmenu">
     <value key="resources">
       <element>webcouturier.dropdownmenu</element>
     </value>
