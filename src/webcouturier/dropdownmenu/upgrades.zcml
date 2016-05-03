@@ -1,7 +1,7 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
   xmlns:gs="http://namespaces.zope.org/genericsetup"
-  i18n_domain="webcouturiere.dropdownmenu">
+  i18n_domain="webcouturier.dropdownmenu">
 
 
   <gs:upgradeStep
@@ -27,6 +27,5 @@
     destination="1012"
     handler=".upgrades.upgrade_1011_to_1012"
     profile="webcouturier.dropdownmenu:default"/>
-
 
 </configure>
