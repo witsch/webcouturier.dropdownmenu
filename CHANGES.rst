@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- More Twitter Bootstrap alignments.
+  [thet]
+
 - Plone 5 compatibility
   [davilima6, fulv, jensens, lewecki]
 
