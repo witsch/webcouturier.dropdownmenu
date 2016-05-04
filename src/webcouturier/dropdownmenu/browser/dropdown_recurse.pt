@@ -1,55 +1,57 @@
-<tal:master define="level options/level|python:0;
-                    children options/children | nothing;
-                    bottomLevel options/bottomLevel | nothing;
-                    utils python:modules['webcouturier.dropdownmenu.utils'];"
-            i18n:domain="plone">
+<tal:master
+    define="level options/level|python:0;
+            children options/children | nothing;
+            bottomLevel options/bottomLevel | nothing;
+            utils python:modules['webcouturier.dropdownmenu.utils'];"
+    i18n:domain="plone">
 
 <metal:main
     define-macro="nav_main"
     tal:define="enable_parent_clickable view/enable_parent_clickable|utils/parentClickable;
                 enable_thumbs view/enable_thumbs|utils/enableThumbs;
                 enable_desc view/enable_desc|utils/enableDesc">
+<tal:loop
+    repeat="node children"
+    condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
 
-    <tal:loop repeat="node children"
-              tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
+  <li tal:define="item            node/item;
+                  item_type       node/portal_type;
+                  item_url        node/getURL;
+                  item_remote_url node/getRemoteUrl;
+                  use_remote_url  node/useRemoteUrl | nothing;
+                  item_type       node/portal_type;
+                  absolute_url    python:item   .getObject().absolute_url;
+                  show_children   node/show_children;
+                  children        node/children;
+                  class_has_dd    python:children and ' hasDropDown' or '';
+                  class_dropdown  python:children and ' dropdown-submenu' or '';
+                  class_position  python:'menu-position-{0}'.format(repeat.node.number);"
+      tal:attributes="class string:${class_position}${class_dropdown}">
+  <tal:level define="item_class string:state-${node/normalized_review_state}${class_has_dd};
+                     item_clickable python:enable_parent_clickable or not children;">
 
-        <li tal:define="item            node/item;
-                        item_type       node/portal_type;
-                        item_url        node/getURL;
-                        item_remote_url node/getRemoteUrl;
-                        use_remote_url  node/useRemoteUrl | nothing;
-                        item_type       node/portal_type;
-                        absolute_url    python:item   .getObject().absolute_url;
-                        show_children   node/show_children;
-                        children        node/children;
-                        class_has_dd    python:children and ' hasDropDown' or '';
-                        class_dropdown  python:children and ' dropdown-submenu' or '';
-                        class_position  python:'menu-position-{0}'.format(repeat.node.number);"
-            tal:attributes="class string:${class_position}${class_dropdown}">
+    <a tal:attributes="href python:use_remote_url and item_remote_url or item_url;
+                       title node/Description;
+                       class python:item_clickable and item_class or item_class + ' noClick'">
+      <span class="submenu_title"
+          tal:content="node/Title">Selected Item Title</span>
+      <img src="" alt="" class="subnmenu_image"
+          tal:define="has_icon exists:python:item.getObject().getImage().icon"
+          tal:attributes="src string:${absolute_url}/@@images/image/${enable_thumbs}"
+          tal:condition="python:has_icon and enable_thumbs!='none'" />
+      <span class="submenu_description"
+          tal:content="node/Description"
+          tal:condition="enable_desc">Selected Item Description</span>
+    </a>
 
-            <tal:level define="item_class string:state-${node/normalized_review_state}${class_has_dd};
-                               item_clickable python:enable_parent_clickable or not children;">
+    <ul tal:attributes="class python:'submenu dropdown-menu navTree navTreeLevel'+str(level)"
+        tal:condition="python: len(children) > 0 and show_children">
+      <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
+    </ul>
 
-                <a tal:attributes="href python:use_remote_url and item_remote_url or item_url;
-                                   title node/Description;
-                                   class python:item_clickable and item_class or item_class + ' noClick'">
+  </tal:level>
+  </li>
 
-                    <span tal:content="node/Title" class="submenu_title">Selected Item Title</span>
-                    <img src="" alt="" class="subnmenu_image"
-                         tal:define="has_icon exists:python:item.getObject().getImage().icon"
-                         tal:attributes="src string:${absolute_url}/@@images/image/${enable_thumbs}"
-                         tal:condition="python:has_icon and enable_thumbs!='none'"
-                    />
-
-                    <span tal:content="node/Description" class="submenu_description"
-                          tal:condition="enable_desc">Selected Item Description</span>
-                </a>
-                <ul tal:attributes="class python:'submenu dropdown-menu navTree navTreeLevel'+str(level)"
-                    tal:condition="python: len(children) > 0 and show_children">
-                    <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
-                </ul>
-            </tal:level>
-        </li>
-    </tal:loop>
+</tal:loop>
 </metal:main>
 </tal:master>
