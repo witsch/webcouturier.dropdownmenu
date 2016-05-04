@@ -6,6 +6,8 @@ Changelog
 ------------------
 
 - More Twitter Bootstrap alignments.
+  Use Twitter Bootstrap classes along with ``plone-`` prefixed ones.
+  Makes sure, it will work in Bootstrap-less and Bootstrap based themes.
   [thet]
 
 - Plone 5 compatibility

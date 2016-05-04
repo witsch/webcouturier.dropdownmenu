@@ -7,11 +7,11 @@
      i18n:domain="plone">
 
   <p class="hiddenStructure" i18n:translate="heading_sections">Navigation</p>
-  <nav class="plone-navbar" id="portal-globalnav-wrapper">
+  <nav class="plone-navbar navbar" id="portal-globalnav-wrapper">
     <div class="container">
 
-      <div class="plone-navbar-header">
-        <button type="button" class="plone-navbar-toggle plone-collapsed" data-toggle="collapse" data-target="#portal-globalnav-collapse" aria-expanded="false">
+      <div class="plone-navbar-header navbar-header">
+        <button type="button" class="plone-navbar-toggle navbar-toggle collapsed" data-toggle="collapse" data-target="#portal-globalnav-collapse" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -19,8 +19,8 @@
         </button>
       </div>
 
-      <div class="plone-collapse plone-navbar-collapse" id="portal-globalnav-collapse">
-        <ul id="portal-globalnav" class="plone-nav plone-navbar-nav navTreeRoot"
+      <div class="plone-collapse plone-navbar-collapse collapse navbar-collapse" id="portal-globalnav-collapse">
+        <ul id="portal-globalnav" class="plone-nav plone-navbar-nav navTreeRoot nav navbar-nav"
             tal:define="selected_tab python:view.selected_portal_tab">
             <tal:tabs tal:repeat="tab portal_tabs">
               <li tal:define="tid tab/id;
@@ -29,7 +29,7 @@
                               target tab/link_target|nothing;
                               subitems python:view.getTabObject(tabUrl=tab['url'], tabPath=tab.get('path'));
                               class_position python:'menu-position-{0}'.format(repeat.tab.number);
-                              class_children python:' plone-dropdown' if subitems else '';
+                              class_children python:' hasDropDown dropdown' if subitems else '';
                               class_selected python:' selected active' if selected_tab==tid else ''"
                   tal:attributes="id string:portaltab-${tid};
                                   class string:${class_position}${class_children}${class_selected}">
