@@ -5,6 +5,10 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Make main menu items with subitems clickable by adding a ``disabled`` class.
+  See: http://stackoverflow.com/questions/12630188/allow-click-on-twitter-bootstrap-dropdown-toggle-link
+  [thet]
+
 - More Twitter Bootstrap alignments.
   Use Twitter Bootstrap classes along with ``plone-`` prefixed ones.
   Makes sure, it will work in Bootstrap-less and Bootstrap based themes.
