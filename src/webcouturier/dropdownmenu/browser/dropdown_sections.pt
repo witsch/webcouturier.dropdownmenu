@@ -37,8 +37,7 @@
                   <a
                       tal:condition="subitems"
                       tal:attributes="href href; title title; target target;"
-                      class="dropdown-toggle disabled"
-                      data-toggle="dropdown"
+                      class="dropdown-toggle"
                       role="button"
                       aria-haspopup="true"
                       aria-expanded="false"><tal:text replace="tab/name"/> <span class="caret"></span></a>

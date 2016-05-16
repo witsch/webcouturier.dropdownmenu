@@ -5,8 +5,8 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
-- Make main menu items with subitems clickable by adding a ``disabled`` class.
-  See: http://stackoverflow.com/questions/12630188/allow-click-on-twitter-bootstrap-dropdown-toggle-link
+- Make main menu items with subitems clickable by removing ``data-toggle`` from ``<a>`` element.
+  See: http://stackoverflow.com/questions/19935480/bootstrap-3-how-to-make-head-of-dropdown-link-clickable-in-navbar
   [thet]
 
 - More Twitter Bootstrap alignments.
