@@ -8,6 +8,9 @@ Changelog
 - Cleanup package, explicitly drop support for Plone 4.1.
   Noted compatibility in readme.  [maurits]
 
+- Fix broken reinstall profile (https://github.com/collective/webcouturier.dropdownmenu/issues/25)
+  [davilima6]
+
 - Add uninstall profile (Fix https://github.com/collective/webcouturier.dropdownmenu/issues/10)
   [davilima6]
 
