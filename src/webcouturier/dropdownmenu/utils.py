@@ -20,8 +20,12 @@ def parentClickable():
     return _get_cfg('enable_parent_clickable')
 
 
-def enableThumbs():
-    return _get_cfg('enable_thumbs')
+def enableImages():
+    return _get_cfg('enable_images')
+
+
+def imgSize():
+    return _get_cfg('img_size')
 
 
 def enableDesc():

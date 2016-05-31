@@ -21,10 +21,4 @@
         description="Extension profile for dropdown menu."
         provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
-    <utility
-        provides="zope.schema.interfaces.IVocabularyFactory"
-        component=".vocabularies.SizeVocabulary"
-        name="webcouturier.dropdownmenu.SizeVocabulary"
-        />
-
 </configure>

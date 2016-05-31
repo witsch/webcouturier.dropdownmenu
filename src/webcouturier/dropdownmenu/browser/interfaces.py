@@ -50,15 +50,25 @@ class IDropdownConfiguration(Interface):
         description=_(
             u'help_desc',
             default=(u'With this option enabled, description is also shown.')),
-        default=True,
+        default=False,
         required=False
     )
 
-    enable_thumbs = schema.Choice(
+    enable_images = schema.Bool(
+        title=_(u'label_enable_img',
+                default=u'Show Images'),
+        description=_(
+            u'help_img',
+            default=(u'With this option enabled, images are shown.')),
+        default=False,
+        required=False
+    )
+
+    img_size = schema.Choice(
         title=_(u'label_size', default=u'Size'),
-        description=_(u'description_size', default=u'The size of the icon'),
-        default='none',
-        vocabulary='webcouturier.dropdownmenu.SizeVocabulary',
+        description=_(u'description_size', default=u'The size of the image'),
+        default='icon',
+        vocabulary='plone.app.vocabularies.ImagesScales',
     )
 
 

@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Make images work within dropdownmenus, cleanup of settings and conditions
+  [agitator]
+
 - Make main menu items with subitems clickable by removing ``data-toggle`` from ``<a>`` element.
   See: http://stackoverflow.com/questions/19935480/bootstrap-3-how-to-make-head-of-dropdown-link-clickable-in-navbar
   [thet]

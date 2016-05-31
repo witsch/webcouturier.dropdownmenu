@@ -74,6 +74,7 @@ Contributors:
 - Leonardo J. Caballero G. [macagua]
 - Florian Schulze [fschulze]
 - Jens Klein [jensens]
+- Peter Holzer [agitator]
 
 
 .. _Makina-Corpus: http://www.makina-corpus.com
