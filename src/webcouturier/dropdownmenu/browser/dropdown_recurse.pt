@@ -37,7 +37,6 @@
       <span class="submenu_title"
           tal:content="node/Title">Selected Item Title</span>
       <img src="" alt="" class="submenu_image clearfix"
-          tal:define="has_icon item/getIcon"
           tal:attributes="src string:${absolute_url}/@@images/image/${image_size}"
           tal:condition="python:item.getIcon and enable_images" />
       <span class="submenu_description"
