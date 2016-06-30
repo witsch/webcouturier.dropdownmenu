@@ -3,8 +3,8 @@ Changelog
 
 (name of developer listed in brackets)
 
-2.3.2dev (unreleased)
----------------------
+2.3.2 (unreleased)
+------------------
 
 - Add Brazilian Portuguese translation.
   [hvelarde]
