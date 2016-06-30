@@ -6,6 +6,9 @@ Changelog
 2.3.2 (unreleased)
 ------------------
 
+- Cleanup package, explicitly drop support for Plone 4.1.
+  Noted compatibility in readme.  [maurits]
+
 - Add Brazilian Portuguese translation.
   [hvelarde]
 

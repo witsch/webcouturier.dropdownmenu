@@ -7,13 +7,17 @@ cache:
 env:
 - PLONE_VERSION=4.2
 - PLONE_VERSION=4.3
-- PLONE_VERSION=5.0
+# With Plone 5 the instance does not even start, so it is useless to test it currently.
+# - PLONE_VERSION=5.0
 matrix:
   include:
   - python: 2.6
-    env: PLONE_VERSION=4.1
-  allow_failures:
-  - env: PLONE_VERSION=5.0
+    env: PLONE_VERSION=4.2
+  exclude:
+  - python: 2.7
+    env: PLONE_VERSION=4.2
+#  allow_failures:
+#  - env: PLONE_VERSION=5.0
   fast_finish: true
 install:
 - sed -ie "s#test-4.3#test-$PLONE_VERSION#" buildout.cfg

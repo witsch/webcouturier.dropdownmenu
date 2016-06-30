@@ -10,6 +10,14 @@ webcouturier.dropdownmenu
 .. image:: https://img.shields.io/coveralls/collective/webcouturier.dropdownmenu/master.svg
     :target: https://coveralls.io/r/collective/webcouturier.dropdownmenu
 
+
+Compatibility
+-------------
+
+Tested with Plone 4.2 and 4.3.
+Not yet ready for Plone 5, sorry.
+
+
 Overview
 --------
 
