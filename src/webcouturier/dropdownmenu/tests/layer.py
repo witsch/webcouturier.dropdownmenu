@@ -68,10 +68,10 @@ class DropdownmenuLayer(DropdownmenuBasicLayer):
 DROPDOWNMENU_BASIC_LAYER = DropdownmenuBasicLayer()
 DROPDOWNMENU_BASIC_INTEGRATION = IntegrationTesting(
     bases=(DROPDOWNMENU_BASIC_LAYER, ),
-    name="DropdownmenuBasicLayer:Integration")
+    name='DropdownmenuBasicLayer:Integration')
 
 DROPDOWNMENU_LAYER = DropdownmenuLayer()
 DROPDOWNMENU_INTEGRATION = IntegrationTesting(
-    bases=(DROPDOWNMENU_LAYER, ), name="DropdownmenuLayer:Integration")
+    bases=(DROPDOWNMENU_LAYER, ), name='DropdownmenuLayer:Integration')
 DROPDOWNMENU_FUNCTIONAL = FunctionalTesting(
-    bases=(DROPDOWNMENU_LAYER, ), name="DropdownmenuLayer:Functional")
+    bases=(DROPDOWNMENU_LAYER, ), name='DropdownmenuLayer:Functional')

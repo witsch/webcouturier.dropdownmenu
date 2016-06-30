@@ -139,7 +139,7 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
                 # any dropdown.
                 return ''
 
-            if tabPath.startswith("/"):
+            if tabPath.startswith('/'):
                 tabPath = tabPath[1:]
             elif tabPath.endswith('/'):
                 # we need a real path, without a slash that might appear
