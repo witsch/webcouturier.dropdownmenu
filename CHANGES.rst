@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Rename resource and bundle names to not contain a dot, because that's not supported by the less toolchain.
+  [thet]
+
 - Make images work within dropdownmenus, cleanup of settings and conditions
   [agitator]
 
