@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Add upgrade steps for 3.0 upgrade and remove obsolete ones.
+  [thet]
+
 - Move ``webcouturier.dropdownmenu.configlet`` to ``webcouturier.dropdownmenu.browser.controlpanel``.
   [thet]
 

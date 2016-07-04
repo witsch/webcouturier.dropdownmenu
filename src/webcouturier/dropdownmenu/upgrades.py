@@ -1,44 +1,35 @@
 # -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
-
-PROFILE = 'profile-webcouturier.dropdownmenu:default'
-
-
-def common(context):
-    setup = getToolByName(context, 'portal_setup')
-    setup.runAllImportStepsFromProfile(PROFILE)
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
 
 
-def upgrade_1000_to_1010(context):
-    """If dropdownmenu_sunburst is after dropdownmenu in sunburst skin,
-    reorder them"""
-    skin = getToolByName(context, 'portal_skins')
-    layers = skin.getSkinPath('Sunburst Theme').split(',')
-    dds = layers.index('dropdownmenu_sunburst')
-    dd = layers.index('dropdownmenu')
-    if dds > dd:
-        # switch them
-        layers[dd] = 'dropdownmenu_sunburst'
-        layers[dds] = 'dropdownmenu'
-        path = ','.join(layers)
-        skin.testSkinPath(path)
-        sels = skin._getSelections()
-        sels['Sunburst Theme'] = path
+def upgrade_1012_to_1030(context):
+    """Upgrade to version 3.0"""
 
-
-def upgrade_1011_to_1012(context):
-    """Adds setting to portal properties"""
+    # PORTAL PROPERTIES
     pprops = getToolByName(context, 'portal_properties')
-    props = pprops.dropdown_properties
-    try:
-        props.manage_addProperty(id='enable_desc', value=False, type='boolean')
-    except:
-        pass
-    try:
-        props.manage_addProperty(
-            id='enable_thumbs',
-            value='none',
-            type='string'
-        )
-    except:
-        pass
+    if 'dropdown_properties' in pprops:
+        pprops.manage_delObjects(['dropdown_properties'])
+
+    # PORTAL SKINS
+    pskin = getToolByName(context, 'portal_skins')
+    for name, layers in pskin.getSkinPaths():
+        layers = layers.split(',')
+        if 'dropdownmenu_sunburst' in layers:
+            layers.remove('dropdownmenu_sunburst')
+        if 'dropdownmenu' in layers:
+            layers.remove('dropdownmenu')
+        pskin._getSelections()[name] = ','.join(layers)
+
+    if 'dropdownmenu' in pskin:
+        pskin.manage_delObjects(['dropdownmenu'])
+    if 'dropdownmenu_sunburst' in pskin:
+        pskin.manage_delObjects(['dropdownmenu_sunburst'])
+
+    # REGISTRY
+    # pre-release cleanup
+    registry = getUtility(IRegistry)
+    regkey_enable_thumbs = 'webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_thumbs'  # noqa
+    if regkey_enable_thumbs in registry.records:
+        del registry.records[regkey_enable_thumbs]
