@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Move ``webcouturier.dropdownmenu.configlet`` to ``webcouturier.dropdownmenu.browser.controlpanel``.
+  [thet]
+
 - Add uninstall profile.
   [thet]
 

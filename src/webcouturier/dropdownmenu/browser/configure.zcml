@@ -21,7 +21,7 @@
     <browser:page
         name="dropdown-controlpanel"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        class="webcouturier.dropdownmenu.configlet.DropdownControlPanel"
+        class="webcouturier.dropdownmenu.browser.controlpanel.DropdownControlPanel"
         permission="cmf.ManagePortal" />
 
 </configure>
