@@ -20,5 +20,11 @@
         directory="profiles/default"
         description="Extension profile for dropdown menu."
         provides="Products.GenericSetup.interfaces.EXTENSION"/>
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="Dropdown menu (uninstall)"
+        directory="profiles/uninstall"
+        description="Uninstall extension profile for dropdown menu."
+        provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
 </configure>
