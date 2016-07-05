@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
+from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
+
+import logging
+
+
+logger = logging.getLogger('webcouturier.dropdownmenu.upgrades')
 
 
 def upgrade_1012_to_1030(context):
@@ -11,6 +16,7 @@ def upgrade_1012_to_1030(context):
     pprops = getToolByName(context, 'portal_properties')
     if 'dropdown_properties' in pprops:
         pprops.manage_delObjects(['dropdown_properties'])
+        logger.info(u'dropdown_properties removed from portal_properties')
 
     # PORTAL SKINS
     pskin = getToolByName(context, 'portal_skins')
@@ -18,14 +24,18 @@ def upgrade_1012_to_1030(context):
         layers = layers.split(',')
         if 'dropdownmenu_sunburst' in layers:
             layers.remove('dropdownmenu_sunburst')
+            logger.info(u'skin layer dropdownmenu_sunburst removed from {0}'.format(name))  # noqa
         if 'dropdownmenu' in layers:
             layers.remove('dropdownmenu')
+            logger.info(u'skin layer dropdownmenu removed from {0}'.format(name))  # noqa
         pskin._getSelections()[name] = ','.join(layers)
 
     if 'dropdownmenu' in pskin:
         pskin.manage_delObjects(['dropdownmenu'])
+        logger.info(u'skin path dropdownmenu removed')
     if 'dropdownmenu_sunburst' in pskin:
         pskin.manage_delObjects(['dropdownmenu_sunburst'])
+        logger.info(u'skin path dropdownmenu_sunburst removed')
 
     # REGISTRY
     # pre-release cleanup
@@ -33,3 +43,11 @@ def upgrade_1012_to_1030(context):
     regkey_enable_thumbs = 'webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.enable_thumbs'  # noqa
     if regkey_enable_thumbs in registry.records:
         del registry.records[regkey_enable_thumbs]
+        logger.info(u'registry entry {0} removed'.format(regkey_enable_thumbs))
+
+    # IMPORT REGISTRY PROFILE
+    profile_id = 'profile-webcouturier.dropdownmenu:default'
+    step_id = 'plone.app.registry'
+    setup = getToolByName(context, 'portal_setup')
+    setup.runImportStepFromProfile(profile_id=profile_id, step_id=step_id)
+    logger.info(u'profile {0} with step {1} imported'.format(profile_id, step_id))  # noqa
