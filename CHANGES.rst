@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Avoid waking up all objects in this navigation structure.
+  [thet]
+
 - Add selected class also to submenu items.
   [thet]
 

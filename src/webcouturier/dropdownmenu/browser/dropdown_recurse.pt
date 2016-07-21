@@ -21,7 +21,6 @@
                   item_remote_url node/getRemoteUrl;
                   use_remote_url  node/useRemoteUrl | nothing;
                   item_type       node/portal_type;
-                  absolute_url    python:item.getObject().absolute_url;
                   show_children   node/show_children;
                   children        node/children;
                   class_has_dd    python:children and ' hasDropDown' or '';
@@ -38,7 +37,7 @@
       <span class="submenu_title"
           tal:content="node/Title">Selected Item Title</span>
       <img src="" alt="" class="submenu_image clearfix"
-          tal:attributes="src string:${absolute_url}/@@images/image/${image_size}"
+          tal:attributes="src string:${item_url}/@@images/image/${image_size}"
           tal:condition="python:item.getIcon and enable_images" />
       <span class="submenu_description"
           tal:content="node/Description"
