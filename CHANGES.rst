@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Add selected class also to submenu items.
+  [thet]
+
 - Add ``review_state`` to tab-links.
   [thet]
 

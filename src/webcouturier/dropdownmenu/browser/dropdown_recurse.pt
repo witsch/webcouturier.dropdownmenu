@@ -21,13 +21,14 @@
                   item_remote_url node/getRemoteUrl;
                   use_remote_url  node/useRemoteUrl | nothing;
                   item_type       node/portal_type;
-                  absolute_url    python:item   .getObject().absolute_url;
+                  absolute_url    python:item.getObject().absolute_url;
                   show_children   node/show_children;
                   children        node/children;
                   class_has_dd    python:children and ' hasDropDown' or '';
                   class_dropdown  python:children and ' dropdown-submenu' or '';
-                  class_position  python:'menu-position-{0}'.format(repeat.node.number);"
-      tal:attributes="class string:${class_position}${class_dropdown}">
+                  class_position  python:'menu-position-{0}'.format(repeat.node.number);
+                  class_selected  python:' selected active' if item_url in context.absolute_url() else ''"
+      tal:attributes="class string:${class_position}${class_dropdown}${class_selected}">
   <tal:level define="item_class string:state-${node/normalized_review_state}${class_has_dd} clearfix;
                      item_clickable python:enable_parent_clickable or not children;">
 
