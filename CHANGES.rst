@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Add ``review_state`` to tab-links.
+  [thet]
+
 - Add upgrade steps for 3.0 upgrade and remove obsolete ones.
   [thet]
 
