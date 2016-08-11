@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
-from plone import api
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from plone.app.layout.navigation.navtree import buildFolderTree
 from plone.app.layout.navigation.root import getNavigationRoot
@@ -13,10 +12,19 @@ from Products.CMFCore.interfaces import IContentish
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from webcouturier.dropdownmenu import utils
 from webcouturier.dropdownmenu.browser.interfaces import IDropdownMenuViewlet
 from zope.component import getMultiAdapter
 from zope.interface import implementer
+
+
+import plone.api
+
+
+_WC = 'webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.{0}'
+
+
+def _get_cfg(name):
+    return plone.api.portal.get_registry_record(_WC.format(name))
 
 
 class DropdownQueryBuilder(NavtreeQueryBuilder):
@@ -28,7 +36,7 @@ class DropdownQueryBuilder(NavtreeQueryBuilder):
         self.query['path'] = {
             'query': '/'.join(context.getPhysicalPath()),
             'navtree_start': 1,
-            'depth': utils.getDropdownDepth()
+            'depth': _get_cfg('dropdown_depth')
         }
 
 
@@ -104,19 +112,37 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
 
     recurse = ViewPageTemplateFile('dropdown_recurse.pt')
 
+    @property
+    def enable_caching(self):
+        return _get_cfg('enable_caching')
+
+    @property
+    def enable_parent_clickable(self):
+        return _get_cfg('enable_parent_clickable')
+
+    @property
+    def enableImages(self):
+        return _get_cfg('enable_images')
+
+    @property
+    def imgSize(self):
+        return _get_cfg('img_size')
+
+    @property
+    def enableDesc(self):
+        return _get_cfg('enable_desc')
+
     def update(self):
         common.ViewletBase.update(self)  # Get portal_state and portal_url
         super(DropdownMenuViewlet, self).update()
         context = aq_inner(self.context)
         portal_props = getToolByName(context, 'portal_properties')
         self.properties = portal_props.navtree_properties
-        self.enable_caching = utils.cachingEnabled()
-        self.enable_parent_clickable = utils.parentClickable()
         self.navroot_path = getNavigationRoot(context)
         self.navroot_path = getNavigationRoot(context)
         try:
             if IContentish.providedBy(context):
-                uid = api.content.get_uuid(obj=context)
+                uid = plone.api.content.get_uuid(obj=context)
             else:
                 uid = None
         except TypeError:

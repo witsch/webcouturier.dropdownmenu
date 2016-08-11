@@ -5,6 +5,9 @@ Changelog
 3.0.0 (unreleased)
 ------------------
 
+- Remove ``utils``, move its methods into the dropdown browser view and eliminate the need to call a module from the page template.
+  [thet]
+
 - Avoid waking up all objects in this navigation structure.
   [thet]
 

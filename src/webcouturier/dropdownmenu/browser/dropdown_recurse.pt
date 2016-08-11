@@ -1,16 +1,15 @@
 <tal:master
     define="level options/level|python:0;
             children options/children | nothing;
-            bottomLevel options/bottomLevel | nothing;
-            utils python:modules['webcouturier.dropdownmenu.utils'];"
+            bottomLevel options/bottomLevel | nothing"
     i18n:domain="plone">
 
 <metal:main
     define-macro="nav_main"
-    tal:define="enable_parent_clickable view/enable_parent_clickable|utils/parentClickable;
-                enable_images utils/enableImages;
-                image_size utils/imgSize;
-                enable_desc utils/enableDesc">
+    tal:define="enable_parent_clickable view/enable_parent_clickable;
+                enable_images view/enableImages;
+                image_size view/imgSize;
+                enable_desc view/enableDesc">
 <tal:loop
     repeat="node children"
     condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
