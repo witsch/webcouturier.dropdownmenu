@@ -1,13 +1,18 @@
 Changelog
 =========
 
-(name of developer listed in brackets)
 
 2.3.2 (unreleased)
 ------------------
 
 - Cleanup package, explicitly drop support for Plone 4.1.
   Noted compatibility in readme.  [maurits]
+
+- Fix broken reinstall profile (https://github.com/collective/webcouturier.dropdownmenu/issues/25)
+  [davilima6]
+
+- Add uninstall profile (Fix https://github.com/collective/webcouturier.dropdownmenu/issues/10)
+  [davilima6]
 
 - Add Brazilian Portuguese translation.
   [hvelarde]
@@ -34,6 +39,7 @@ Changelog
 - move css from import to link
   [toutpt]
 
+
 2.3 (2012-01-23)
 ----------------
 
@@ -51,6 +57,7 @@ Changelog
 
 - rename dropdown css from dtml to static css
   [toutpt]
+
 
 2.2 (August 17, 2011)
 ---------------------
@@ -75,6 +82,7 @@ Changelog
 - Fix Plone4.1 startup issue: http://dev.plone.org/plone/ticket/11837
   [toutpt]
 
+
 2.1 (2010-09-23)
 ----------------
 
@@ -89,6 +97,7 @@ Changelog
 
 - Added Spanish translation
   [macagua]
+
 
 2.0 (2009-05-26)
 ----------------
@@ -111,6 +120,7 @@ Changelog
   templates without a #portal-globalnav.
   [davisagli]
 
+
 1.1.5 (2008-04-19)
 ------------------
 
@@ -129,6 +139,7 @@ Changelog
   users now to decide what version of plone.browserlayer to use.
   [spliter]
 
+
 1.1.4 (2008-04-11)
 ------------------
 
@@ -136,6 +147,7 @@ Changelog
   root differs from site root. In this case you could get
   "'NoneType' object has no attribute 'endswith'" error
   [spliter]
+
 
 1.1.3 (2008-04-09)
 ------------------
@@ -160,6 +172,7 @@ Changelog
   removes some boilerplate code and makes sure everything is initialised
   properly.
   [wichert]
+
 
 1.1 (2007-10-29)
 ----------------

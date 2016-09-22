@@ -23,6 +23,8 @@
         name="dropdown-controlpanel"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class="webcouturier.dropdownmenu.configlet.DropdownControlPanel"
-        permission="cmf.ManagePortal" />
+        layer=".interfaces.IDropdownSpecific"
+        permission="cmf.ManagePortal"
+        />
 
 </configure>

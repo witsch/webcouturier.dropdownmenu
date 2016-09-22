@@ -2,7 +2,7 @@
 /*globals $, jQuery*/
 
 jQuery(function ($) {
-    $('#portal-globalnav .noClick').click(function (e) {
+    $('#portal-globalnav .noClick').click(function(e) {
         e.preventDefault();
     });
 
@@ -14,4 +14,3 @@ jQuery(function ($) {
         $(this).removeClass('open');
     });
 });
-
