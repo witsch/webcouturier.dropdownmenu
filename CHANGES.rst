@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0.0 (unreleased)
+3.0.0 (2016-11-14)
 ------------------
 
 - Remove ``utils``, move its methods into the dropdown browser view and eliminate the need to call a module from the page template.
