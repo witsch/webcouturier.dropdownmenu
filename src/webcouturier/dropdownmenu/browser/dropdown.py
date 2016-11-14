@@ -9,22 +9,21 @@ from plone.app.portlets.portlets.navigation import Assignment
 from plone.memoize.compress import xhtml_compress
 from plone.memoize.ram import cache
 from Products.CMFCore.interfaces import IContentish
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from webcouturier.dropdownmenu.browser.interfaces import IDropdownConfiguration
 from webcouturier.dropdownmenu.browser.interfaces import IDropdownMenuViewlet
 from zope.component import getMultiAdapter
 from zope.interface import implementer
 
-
 import plone.api
 
 
-_WC = 'webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration.{0}'
-
-
 def _get_cfg(name):
-    return plone.api.portal.get_registry_record(_WC.format(name))
+    return plone.api.portal.get_registry_record(
+        name,
+        interface=IDropdownConfiguration
+    )
 
 
 class DropdownQueryBuilder(NavtreeQueryBuilder):
@@ -54,21 +53,10 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
     # anonymous user.)
     #
     def _render_cachekey(fun, self):
-
-        context = aq_inner(self.context)
-
-        anonymous = getToolByName(
-            context, 'portal_membership').isAnonymousUser()
-
-        def get_language(context, request):
-            portal_state = getMultiAdapter(
-                (context, request), name=u'plone_portal_state')
-            return portal_state.locale().getLocaleID()
-
         return ''.join((
             self.selected_portal_tab,
-            get_language(context, self.request),
-            str(anonymous),
+            plone.api.portal.get_current_language(aq_inner(self.context)),
+            str(plone.api.user.is_anonymous()),
         ))
 
     # Cache by
@@ -136,7 +124,7 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
         common.ViewletBase.update(self)  # Get portal_state and portal_url
         super(DropdownMenuViewlet, self).update()
         context = aq_inner(self.context)
-        portal_props = getToolByName(context, 'portal_properties')
+        portal_props = plone.api.portal.get_tool('portal_properties')
         self.properties = portal_props.navtree_properties
         self.navroot_path = getNavigationRoot(context)
         self.navroot_path = getNavigationRoot(context)

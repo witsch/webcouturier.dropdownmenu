@@ -1,15 +1,21 @@
 # -*- coding: utf-8 -*-
-import unittest2 as unittest
-import doctest
 from plone.testing import layered
+from webcouturier.dropdownmenu.testing import DROPDOWN_FUNCTIONAL_TESTING
 
-from webcouturier.dropdownmenu.tests.layer import DROPDOWNMENU_FUNCTIONAL
+import doctest
+import unittest2 as unittest
 
 
 def test_suite():
     suite = unittest.TestSuite()
-    suite.addTests([
-        layered(doctest.DocFileSuite('browser.txt', ),
-                layer=DROPDOWNMENU_FUNCTIONAL),
-    ])
+    suite.addTests(
+        [
+            layered(
+                doctest.DocFileSuite(
+                    'browser.rst',
+                ),
+                layer=DROPDOWN_FUNCTIONAL_TESTING
+            ),
+        ]
+    )
     return suite

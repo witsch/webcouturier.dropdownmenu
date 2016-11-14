@@ -15,40 +15,35 @@
     condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
 
   <li tal:define="item            node/item;
-                  item_type       node/portal_type;
                   item_url        node/getURL;
                   item_remote_url node/getRemoteUrl;
                   use_remote_url  node/useRemoteUrl | nothing;
-                  item_type       node/portal_type;
                   show_children   node/show_children;
                   children        node/children;
                   class_has_dd    python:children and ' hasDropDown' or '';
                   class_dropdown  python:children and ' dropdown-submenu' or '';
                   class_position  python:'menu-position-{0}'.format(repeat.node.number);
-                  class_selected  python:' selected active' if item_url in context.absolute_url() else ''"
-      tal:attributes="class string:${class_position}${class_dropdown}${class_selected}">
-  <tal:level define="item_class string:state-${node/normalized_review_state}${class_has_dd} clearfix;
-                     item_clickable python:enable_parent_clickable or not children;">
-
-    <a tal:attributes="href python:use_remote_url and item_remote_url or item_url;
-                       title node/Description;
-                       class python:item_clickable and item_class or item_class + ' noClick'">
-      <span class="submenu_title"
-          tal:content="node/Title">Selected Item Title</span>
-      <img src="" alt="" class="submenu_image clearfix"
-          tal:attributes="src string:${item_url}/@@images/image/${image_size}"
-          tal:condition="python:item.getIcon and enable_images" />
+                  class_selected  python:' selected active' if item_url in context.absolute_url() else '';
+                  class_state     string: state-${node/normalized_review_state};
+                  class_clickable python:' noClick' if not enable_parent_clickable and children else '';"
+      class="${class_position}${class_dropdown}${class_selected}">
+    <a class="clearfix${class_state}${class_has_dd}${class_clickable}"
+       title="${node/Description}"
+       href="${python:use_remote_url and item_remote_url or item_url}">
+      <span class="submenu_title">${node/Title}</span>
+      <img tal:condition="python:item.getIcon and enable_images"
+           src="${item_url}/@@images/image/${image_size}"
+           alt=""
+           class="submenu_image clearfix" />
       <span class="submenu_description"
-          tal:content="node/Description"
-          tal:condition="enable_desc">Selected Item Description</span>
+            tal:condition="python:enable_desc and node['Description']">${node/Description}</span>
     </a>
 
-    <ul tal:attributes="class python:'submenu dropdown-menu navTree navTreeLevel'+str(level)"
-        tal:condition="python: len(children) > 0 and show_children">
+    <ul tal:condition="python: len(children) > 0 and show_children"
+        class="${python:'submenu dropdown-menu navTree navTreeLevel'+str(level)}">
       <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
     </ul>
 
-  </tal:level>
   </li>
 
 </tal:loop>

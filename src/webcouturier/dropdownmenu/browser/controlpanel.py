@@ -14,12 +14,12 @@ class DropdownControlPanelForm(RegistryEditForm):
     )
 
     label = _(
-        u"A dropdown menu configuration.",
-        default=u"A dropdown menu configuration."
+        u'A dropdown menu configuration.',
+        default=u'A dropdown menu configuration.'
     )
     description = _(
-        u"Settings to configure dropdown menus for global navigation.",
-        default=u"Settings to configure dropdown menus for global navigation."
+        u'Settings to configure dropdown menus for global navigation.',
+        default=u'Settings to configure dropdown menus for global navigation.'
     )
 
 

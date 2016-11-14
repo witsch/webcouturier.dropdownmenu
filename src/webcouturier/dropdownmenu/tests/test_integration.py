@@ -1,58 +1,21 @@
 # -*- coding: utf-8 -*-
-import unittest2 as unittest
-import zope.interface
-
+from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
+from webcouturier.dropdownmenu.testing import DROPDOWN_INTEGRATION_TESTING
 
-from plone.app.layout.navigation.interfaces import INavigationRoot
-
-from Products.CMFCore.utils import getToolByName
-
-from webcouturier.dropdownmenu.browser.dropdown import DropdownMenuViewlet
-from webcouturier.dropdownmenu.tests.layer import DROPDOWNMENU_INTEGRATION, \
-    DROPDOWNMENU_BASIC_INTEGRATION
-
-
-class TestConfiglet(unittest.TestCase):
-
-    layer = DROPDOWNMENU_INTEGRATION
-
-    def setUp(self):
-        portal = self.layer['portal']
-        propertiesTool = getToolByName(portal, 'portal_properties')
-        self.dmprops = propertiesTool['dropdown_properties']
-
-        self.portal = portal
-        self.ps = propertiesTool
-
-    def test_control_panel(self):
-        cp = getToolByName(self.portal, 'portal_controlpanel')
-        self.assertIn(
-            'DropdownConfiguration',
-            [a.getAction(self)['id'] for a in cp.listActions()]
-        )
-
-    def test_property_sheet_availability(self):
-        self.assertIn('dropdown_properties', self.ps.objectIds())
-
-    def test_settings_available(self):
-        settings = [
-            'dropdown_depth',
-            'enable_caching',
-            'enable_parent_clickable'
-        ]
-        for setting in settings:
-            self.assertTrue(self.dmprops.hasProperty(setting))
+import unittest2 as unittest
+import zope.interface
 
 
 class TestDropdownmenu(unittest.TestCase):
 
-    layer = DROPDOWNMENU_BASIC_INTEGRATION
+    layer = DROPDOWN_INTEGRATION_TESTING
 
     def setUp(self):
         portal = self.layer['portal']
         request = self.layer['request']
+        from webcouturier.dropdownmenu.browser.dropdown import DropdownMenuViewlet  # noqa
         viewlet = DropdownMenuViewlet(portal, request, None, None)
         setRoles(portal, TEST_USER_ID, ['Manager'])
 
@@ -77,7 +40,7 @@ class TestDropdownmenu(unittest.TestCase):
         rf = getattr(self.portal, 'folder-0')
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         for i in range(2):
-            rf.invokeFactory('Folder', 'sub-%s' % i)
+            rf.invokeFactory('Folder', 'sub-%s' % i)  # noqa: P001
         setRoles(self.portal, TEST_USER_ID, ['Member'])
 
         return rf.absolute_url()
@@ -93,21 +56,23 @@ class TestDropdownmenu(unittest.TestCase):
         self.assertNotEqual(
             self.viewlet.getTabObject(rf_url),
             '',
-            "We don't have the sub-folders available in the global navigation"
+            'We don\'t have the sub-folders available in the global navigation'
         )
 
     def test_subfolders_in_dropdownmenus(self):
         rf_url = self.addSubFolders()
+        self.viewlet.update()
         self.assertIn(
-            '<a href="http://nohost/plone/folder-0/sub-0"',
+            'href="http://nohost/plone/folder-0/sub-0"',
             self.viewlet.getTabObject(rf_url),
-            "The sub-folder's URL is not available in the global navigation"
+            'The sub-folder\'s URL is not available in the global navigation'
         )
 
     def test_leaks_in_dropdownmenus(self):
         rf_url = self.addSubFolders()
+        self.viewlet.update()
         self.assertNotIn(
-            '<a href="http://nohost/plone/folder-0"',
+            'href="http://nohost/plone/folder-0"',
             self.viewlet.getTabObject(rf_url),
             'We have the leakage of the top level folders in the dropdownmenus'
         )
@@ -117,7 +82,7 @@ class TestINavigationRootDropdownmenu(unittest.TestCase):
     """ Test that the dropdownmenus play nice with different INavigationRoot.
     """
 
-    layer = DROPDOWNMENU_INTEGRATION
+    layer = DROPDOWN_INTEGRATION_TESTING
 
     def setUp(self):
         portal = self.layer['portal']
@@ -126,6 +91,7 @@ class TestINavigationRootDropdownmenu(unittest.TestCase):
         # mark one of it's sub-folders ('sub-0') as a navigation root
         self.f1 = portal['folder-0']
         zope.interface.alsoProvides(self.f1, INavigationRoot)
+        from webcouturier.dropdownmenu.browser.dropdown import DropdownMenuViewlet  # noqa
         viewlet = DropdownMenuViewlet(portal, request, None, None)
         viewlet.update()
 
@@ -148,5 +114,5 @@ class TestINavigationRootDropdownmenu(unittest.TestCase):
         self.assertNotIn(
             '<a href="http://nohost/plone/folder-1"',
             self.viewlet.getTabObject(self.rf_url),
-            "The dropdown menus don't respect the iNavigationRoot."
+            'The dropdown menus don\'t respect the iNavigationRoot.'
         )

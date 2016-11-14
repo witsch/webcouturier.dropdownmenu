@@ -40,11 +40,11 @@ http://docs.plone.org/manage/installing/installing_addons.html
 Tips
 ----
 
-While disabling clicking the links with children, I want the links in the global navigation bar to be clickable nevertheless
+While disabling clicking the links with children, one may want the links in the global navigation bar to be clickable nevertheless
 
-  What you need is to customize the ``browser/static/dropdown.js`` file like the following:
+What you need is to customize the ``browser/static/dropdown.js`` file like the following:
 
-  ::
+::
 
     jQuery(function ($) {
         $('#portal-globalnav ul .noClick').click(function (e) {
@@ -52,9 +52,29 @@ While disabling clicking the links with children, I want the links in the global
         });
     });
 
-  Note that we have added **ul** in the jQuery selector. This will stop
-  clickability of the links in the dropdowns only, but not the section's link
-  in the global navigation bar itself.
+Note that we have added **ul** in the jQuery selector. This will stop
+clickability of the links in the dropdowns only, but not the section's link
+in the global navigation bar itself.
+
+Contribute
+----------
+
+.. image:: https://travis-ci.org/collective/webcouturier.dropdownmenu.svg?branch=master
+    :target: https://travis-ci.org/collective/webcouturier.dropdownmenu
+
+.. image:: https://coveralls.io/repos/github/collective/webcouturier.dropdownmenu/badge.svg?branch=master
+    :target: https://coveralls.io/github/collective/webcouturier.dropdownmenu?branch=master
+
+
+- Issue Tracker: https://github.com/collective/webcouturier.dropdownmenu/issues
+- Source Code: https://github.com/collective/webcouturier.dropdownmenu
+
+
+We'd be happy to see many commits, forks and pull-requests to make webcouturier.dropdownmenu even better.
+
+If you are having issues, please let us know. `Open an issue <http://github.com/collective/webcouturier.dropdownmenu/issues>`_ or send us an e-mail to dev@bluedynamics.com.
+
+
 
 Credits
 -------
@@ -73,8 +93,9 @@ Contributors:
 - Matt Halstead [matthal]
 - Leonardo J. Caballero G. [macagua]
 - Florian Schulze [fschulze]
-- Jens Klein [jensens]
-- Peter Holzer [agitator]
+- Jens Klein [jensens] `BlueDynamics Alliance`_
+- Peter Holzer [agitator] `BlueDynamics Alliance`_
+- Johannes Raggam [thet] `BlueDynamics Alliance`_
 
 
 .. _Makina-Corpus: http://www.makina-corpus.com
@@ -83,3 +104,4 @@ Contributors:
 .. _Google+: https://plus.google.com/102311957553961771735/posts
 .. _toutpt: http://profiles.google.com/toutpt
 .. _Ecréall: http://www.ecreall.com/
+.. _BlueDynamics Alliance: http://bluedynamics.com/
