@@ -5,7 +5,8 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Merge resources with default bundle
+  [agitator]
 
 
 3.0.0 (2016-11-14)
