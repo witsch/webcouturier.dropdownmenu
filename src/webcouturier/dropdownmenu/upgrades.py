@@ -13,13 +13,13 @@ def upgrade_1012_to_1030(context):
     """Upgrade to version 3.0"""
 
     # PORTAL PROPERTIES
-    pprops = api.get_tool('portal_properties')
+    pprops = api.portal.get_tool('portal_properties')
     if 'dropdown_properties' in pprops:
         pprops.manage_delObjects(['dropdown_properties'])  # noqa: P001
         logger.info(u'dropdown_properties removed from portal_properties')
 
     # PORTAL SKINS
-    pskin = api.get_tool('portal_skins')
+    pskin = api.portal.get_tool('portal_skins')
     for name, layers in pskin.getSkinPaths():
         layers = layers.split(',')
         if 'dropdownmenu_sunburst' in layers:
@@ -57,7 +57,7 @@ def upgrade_1012_to_1030(context):
     # IMPORT REGISTRY PROFILE
     profile_id = 'profile-webcouturier.dropdownmenu:default'
     step_id = 'plone.app.registry'
-    setup = api.get_tool('portal_setup')
+    setup = api.portal.get_tool('portal_setup')
     setup.runImportStepFromProfile(profile_id=profile_id, step_id=step_id)
     logger.info(
         u'profile {0} with step {1} imported'.format(profile_id, step_id)
