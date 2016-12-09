@@ -5,7 +5,8 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix AttributeError during upgrade. 
+  [abosio]
 
 
 3.0.1 (2016-11-24)
