@@ -32,7 +32,7 @@ class WebcouturierDropdownmenuLayer(PloneSandboxLayer):
         workflowTool = getToolByName(portal, 'portal_workflow')   # noqa: P001
         workflowTool.setDefaultChain('simple_publication_workflow')
         for i in range(2):
-            folder_id = 'folder-%s' % i
+            folder_id = 'folder-%s' % i  # noqa: S001
             portal.invokeFactory('Folder', folder_id)  # noqa: P001
         setRoles(portal, TEST_USER_ID, ['Member'])
 

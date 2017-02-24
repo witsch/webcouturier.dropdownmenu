@@ -40,7 +40,7 @@ class TestDropdownmenu(unittest.TestCase):
         rf = getattr(self.portal, 'folder-0')
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         for i in range(2):
-            rf.invokeFactory('Folder', 'sub-%s' % i)  # noqa: P001
+            rf.invokeFactory('Folder', 'sub-%s' % i)  # noqa: P001, S001
         setRoles(self.portal, TEST_USER_ID, ['Member'])
 
         return rf.absolute_url()

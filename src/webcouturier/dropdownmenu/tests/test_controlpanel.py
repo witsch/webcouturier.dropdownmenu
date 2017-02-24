@@ -56,7 +56,9 @@ class RegistryTestCase(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.registry = getUtility(IRegistry)
-        self.settings = self.registry.forInterface(IDropdownConfiguration)  # noqa: P001
+        self.settings = self.registry.forInterface(  # noqa: P001
+            IDropdownConfiguration
+        )
 
     def test_css_class_blacklist_record_in_registry(self):
         self.assertTrue(hasattr(self.settings, 'dropdown_depth'))
