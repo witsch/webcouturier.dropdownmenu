@@ -7,13 +7,14 @@
 *.pyo
 *.tmp*
 .bzr
+.coverage
 .DS_Store
 .hg
 .installed.cfg
 .mr.developer.cfg
 .project
 .pydevproject
-.svn
+/pip-selfcheck.json
 bin
 build
 develop-eggs
@@ -23,6 +24,9 @@ eggs
 fake-eggs
 include
 lib
+lib64
 local
 parts
+pip-selfcheck.json
 var
+/.Python
