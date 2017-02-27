@@ -37,6 +37,12 @@
 .plone-navbar-nav li .submenu a .submenu_image {
   float: right;
 }
+.plone-navbar-nav li .submenu .dropdown-submenu a.hasDropDown:after {
+  content: "▸";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
 .plone-navbar-nav li .submenu li {
   position: relative;
   float: left;
@@ -45,12 +51,34 @@
   top: 0;
   left: 100%;
 }
-@media (max-width: 768px) {
-  .plone-navbar-nav li .submenu {
-    display: none;
-  }
-  .plone-navbar-nav li:hover > .submenu {
-    display: none;
-  }
+.plone-navbar-collapse.in .plone-navbar-nav {
+  margin: 0 -15px 0;
+}
+.plone-navbar-collapse.in li {
+  padding-left: 1em;
+}
+.plone-navbar-collapse.in li .navTreeLevel1 {
+  padding-left: 2em;
+}
+.plone-navbar-collapse.in li .navTreeLevel1 .navTreeLevel1 {
+  padding-left: 3em;
+}
+.plone-navbar-collapse.in li .submenu {
+  display: block;
+  position: relative;
+}
+.plone-navbar-collapse.in li .submenu li {
+  float: none;
+}
+.plone-navbar-collapse.in li .submenu .dropdown-submenu a.hasDropDown:after {
+  content: "▸";
+  display: inline-block;
+  position: absolute;
+  background: red;
+  cursor: hand;
+  z-index: 1;
+  width: 2em;
+  height: 2em;
+  right: 0;
 }
 /*# sourceMappingURL=webcouturier.dropdownmenu-compiled.css.map */

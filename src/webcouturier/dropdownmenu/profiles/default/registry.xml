@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <registry>
+
   <records interface="webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration" />
-  <records
-      interface="Products.CMFPlone.interfaces.IResourceRegistry"
-      prefix="plone.resources/webcouturier-dropdownmenu">
-    <value key="css">
-      <element>++plone++dropdown/dropdown.less</element>
-    </value>
+
+  <records prefix="plone.resources/webcouturier-dropdownmenu"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+      <value key="js">++plone++dropdown/dropdown.js</value>
+      <value key="css">
+        <element>++plone++dropdown/dropdown.less</element>
+      </value>
   </records>
+
   <records
       interface="Products.CMFPlone.interfaces.IBundleRegistry"
       prefix="plone.bundles/webcouturier-dropdownmenu">
@@ -18,6 +21,8 @@
     <value key="enabled">True</value>
     <value key="compile">True</value>
     <value key="csscompilation">++plone++dropdown/webcouturier.dropdownmenu-compiled.css</value>
+    <value key="jscompilation">++plone++dropdown/webcouturier.dropdownmenu-compiled.js</value>
     <value key="merge_with">default</value>
   </records>
+
 </registry>
