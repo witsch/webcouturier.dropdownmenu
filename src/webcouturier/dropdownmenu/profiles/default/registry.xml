@@ -4,7 +4,7 @@
   <records interface="webcouturier.dropdownmenu.browser.interfaces.IDropdownConfiguration" />
 
   <records prefix="plone.resources/webcouturier-dropdownmenu"
-           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+           interface="Products.CMFPlone.interfaces.IResourceRegistry">
       <value key="js">++plone++dropdown/dropdown.js</value>
       <value key="css">
         <element>++plone++dropdown/dropdown.less</element>
@@ -12,7 +12,7 @@
   </records>
 
   <records prefix="plone.resources/webcouturier-dropdownmenu-bundle"
-           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+           interface="Products.CMFPlone.interfaces.IResourceRegistry">
       <value key="js">++plone++dropdown/dropdown-bundle.js</value>
       <value key="css">
         <element>++plone++dropdown/dropdown.less</element>
