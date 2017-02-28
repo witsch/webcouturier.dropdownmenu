@@ -27,14 +27,6 @@
       min-width: 14em;
       padding: 15px 10px 15px 15px;
       position: relative;
-      .dropdown-submenu a.hasDropDown {
-        &:after {
-          content: "▸";
-          display: inline-block;
-          position: absolute;
-          right: 0;
-        }
-      }
       &:hover {
         background-color: #9abdd6;
         text-decoration: none;
@@ -44,6 +36,14 @@
       }
       .submenu_image {
         float: right;
+      }
+    }
+    .dropdown-submenu a.hasDropDown {
+      &:after {
+        content: "▸";
+        display: inline-block;
+        position: absolute;
+        right: 0;
       }
     }
     li {
