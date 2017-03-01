@@ -27,7 +27,8 @@ require([
         // });
         $('ul.nav li.dropdown .opener').click(function(e) {
             e.preventDefault();
-            $(this).parent().next('.dropdown-menu').toggleClass('openmenu');
+            $(this).toggleClass('menu-open');
+            $(this).parent().next('.dropdown-menu').toggleClass('menu-open');
             ;
         });
     });

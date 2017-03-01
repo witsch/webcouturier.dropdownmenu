@@ -112,10 +112,10 @@
       height: 0;
       margin-left: 0;
       vertical-align: bottom;
-      border-top:   0.5em dashed;
-      border-right: 0.5em solid transparent;
-      border-left:  0.5em solid transparent;
-      border-bottom: 0
+      border-top:    0.5em dashed;
+      border-right:  0.5em solid transparent;
+      border-left:   0.5em solid transparent;
+      border-bottom: 0;
     }
   }
   .menu-open { display: block!important; }
@@ -142,9 +142,9 @@
           height: 0;
           margin-left: 0;
           vertical-align: bottom;
-          border-top:   0.5em dashed;
-          border-right: 0.5em solid transparent;
-          border-left:  0.5em solid transparent;
+          border-top:    0.5em dashed;
+          border-right:  0.5em solid transparent;
+          border-left:   0.5em solid transparent;
           border-bottom: 0;
         }
       }
@@ -161,6 +161,14 @@
             top: unset;
             left: unset;
         }
+      }
+    }
+    .opener.menu-open {
+      > .caret {
+        border-top:    0;
+        border-right:  0.5em solid transparent;
+        border-left:   0.5em solid transparent;
+        border-bottom: 0.5em dashed;
       }
     }
     .navTreeLevel0 .submenu_title {

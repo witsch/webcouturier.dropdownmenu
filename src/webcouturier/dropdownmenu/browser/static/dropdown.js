@@ -27,6 +27,7 @@ require([
         // });
         $('ul.nav li.dropdown .opener').click(function(e) {
             e.preventDefault();
+            $(this).toggleClass('menu-open');
             $(this).parent().next('.dropdown-menu').toggleClass('menu-open');
             ;
         });
