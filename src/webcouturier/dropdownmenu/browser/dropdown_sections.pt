@@ -43,7 +43,7 @@
                       class="dropdown-toggle${review_state}${class_clickable}"
                       role="button"
                       aria-haspopup="true"
-                      aria-expanded="false">${tab/name}<span class="caret"></span></a>
+                      aria-expanded="false">${tab/name} <span class="opener"><span class="caret"></span></span></a>
                   <a
                       tal:condition="not:subitems"
                       href="${href}"
@@ -52,7 +52,7 @@
                       class="no-dropdown${review_state}${class_clickable}">${tab/name}</a>
 
                   <tal:block tal:condition="subitems">
-                  <ul class="submenu dropdown-menu">
+                  <ul class="submenu dropdown-menu navTreeLevel0">
                   <tal:subitems tal:replace="structure subitems">
                     <tal:comment replace="nothing">Submenu</tal:comment>
                   </tal:subitems>

@@ -1,5 +1,22 @@
+//** Width of the `border` for generating carets that indicate dropdowns.
+@plone-caret-width-base:          4px;
+//** Carets increase slightly in size for larger components.
+@plone-caret-width-large:         5px;
+@plone-font-size-base:           16px;
 
+// a { outline: 1px dotted white; margin: 0.25em; }
 .plone-navbar-nav li {
+    .caret {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 2px;
+      vertical-align: middle;
+      border-top:   (@plone-font-size-base * .25) dashed;
+      border-right: (@plone-font-size-base * .25) solid transparent;
+      border-left:  (@plone-font-size-base * .25) solid transparent;
+    }
+
   &:hover > .submenu {
     display: block;
   }
@@ -20,12 +37,32 @@
     padding-bottom: 0;
     position: absolute;
     z-index: 9999;
+    .opener {
+      background: transparent;
+      float: right;
+      text-align: right;
+      width: @plone-font-size-base * 2;
+      height: @plone-font-size-base * 2;
+      margin-top: -(@plone-font-size-base * 0.4);
+      margin-right: -(@plone-font-size-base * 0.7);
+      .caret {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: bottom;
+        border-left:   (@plone-font-size-base * .25) dashed;
+        border-bottom: (@plone-font-size-base * .25) solid transparent;
+        border-top:  (@plone-font-size-base * .25) solid transparent;
+      }
+    }
+
     a {
       color: white;
       display: block;
       line-height: 20px;
       min-width: 14em;
-      padding: 15px 10px 15px 15px;
+      padding: 10px 15px;
       position: relative;
       &:hover {
         background-color: #9abdd6;
@@ -38,14 +75,14 @@
         float: right;
       }
     }
-    .dropdown-submenu a.hasDropDown {
-      &:after {
-        content: "▸";
-        display: inline-block;
-        position: absolute;
-        right: 0;
-      }
-    }
+    // .dropdown-submenu a.hasDropDown {
+    //   &:after {
+    //     content: "▸";
+    //     display: inline-block;
+    //     position: absolute;
+    //     right: 0;
+    //   }
+    // }
     li {
       position: relative;
       float: left;
@@ -57,48 +94,95 @@
   }
 }
 
+
+@media (max-width: 768px) {
 .plone-navbar-collapse.in {
+  .opener {
+    background: transparent;
+    border: 1px solid white;
+    float: right;
+    text-align: center;
+    width: @plone-font-size-base * 2;
+    height: @plone-font-size-base * 2;
+    margin-top: -(@plone-font-size-base * 0.4);
+    margin-right: -(@plone-font-size-base * 0.7);
+    .caret {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 0;
+      vertical-align: bottom;
+      border-top:   0.5em dashed;
+      border-right: 0.5em solid transparent;
+      border-left:  0.5em solid transparent;
+      border-bottom: 0
+    }
+  }
+  .menu-open { display: block!important; }
   .plone-navbar-nav {
       margin: 0 -15px 0;
   }
   li {
-    .navTreeLevel1 {
-      padding-left: 1em;
-      .navTreeLevel1 {
-        padding-left: 2em;
-      }
+    &:hover > .submenu {
+      display: none;
     }
     .submenu {
-      display: block;
+      .opener {
+        background: transparent;
+        border: 1px solid white;
+        float: right;
+        text-align: center;
+        width: @plone-font-size-base * 2;
+        height: @plone-font-size-base * 2;
+        margin-top: -(@plone-font-size-base * 0.4);
+        margin-right: -(@plone-font-size-base * 0.7);
+        .caret {
+          display: inline-block;
+          width: 0;
+          height: 0;
+          margin-left: 0;
+          vertical-align: bottom;
+          border-top:   0.5em dashed;
+          border-right: 0.5em solid transparent;
+          border-left:  0.5em solid transparent;
+          border-bottom: 0;
+        }
+      }
+      // display: block;
       position: relative;
+      a {
+        &:hover {
+          // background-color: unset;
+        }
+      }
       li {
         float: none;
-      }
-    .dropdown-submenu a.hasDropDown {
-      &:after {
-        content: "▸";
-        display: inline-block;
-        position: absolute;
-        background: red;
-        cursor: hand;
-        z-index: 1;
-        width: 2em;
-        height: 2em;
-        right: 0;
+        &:hover ul {
+            top: unset;
+            left: unset;
+        }
       }
     }
-
+    .navTreeLevel0 .submenu_title {
+      padding-left: 0.5em;
+    }
+    .navTreeLevel1 .submenu_title {
+      padding-left: 1em;
+    }
+    .navTreeLevel2 .submenu_title {
+      padding-left: 1.5em;
+    }
+    .navTreeLevel3 .submenu_title {
+      padding-left: 2em;
     }
   }
 }
-
-// @media (max-width: 768px) {
-//   .plone-navbar-nav li {
-//     .submenu {
-//       display: none;
-//     }
-//     &:hover > .submenu {
-//       display: none;
-//     }
-//   }
-// }
+  .plone-navbar-nav li {
+    .submenu {
+      // display: none;
+    }
+    &:hover > .submenu {
+      display: unset;
+    }
+  }
+}

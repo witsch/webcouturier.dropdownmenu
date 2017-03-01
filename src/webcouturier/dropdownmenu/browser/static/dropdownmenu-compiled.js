@@ -1,2 +1,2 @@
-define("/Users/peter/workspace/zhref/srcaddons/webcouturier.dropdownmenu/src/webcouturier/dropdownmenu/browser/static/dropdown-bundle.js",function(){});
+window.jQuery&&define("jquery",[],function(){return window.jQuery}),require(["jquery"],function(a){"use strict";jQuery(function(a){a("#portal-globalnav .noClick").click(function(a){a.preventDefault()}),a("ul.nav li.dropdown .opener").click(function(b){b.preventDefault(),a(this).parent().next(".dropdown-menu").toggleClass("openmenu")})})}),define("/Users/peter/workspace/zhref/srcaddons/webcouturier.dropdownmenu/src/webcouturier/dropdownmenu/browser/static/dropdown.js",function(){});
 //# sourceMappingURL=dropdownmenu-compiled.js.map
