@@ -10,7 +10,7 @@ Changelog
   Fixes: #31.
   [thet]
 
-- Fix AttributeError during upgrade. 
+- Fix AttributeError during upgrade.
   [abosio]
 
 
