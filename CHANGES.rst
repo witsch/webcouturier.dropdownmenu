@@ -5,6 +5,11 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
+- To set global section active tab, use ``selected_portal_tab`` instead simple url comparison.
+  Fixes the ``Home`` tab always set active.
+  Fixes: #31.
+  [thet]
+
 - Fix AttributeError during upgrade. 
   [abosio]
 
