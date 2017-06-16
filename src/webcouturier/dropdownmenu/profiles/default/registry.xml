@@ -11,16 +11,14 @@
       </value>
   </records>
 
-  <!-- <records prefix="plone.resources/webcouturier-dropdownmenu-bundle"
-           interface="Products.CMFPlone.interfaces.IResourceRegistry">
-      <value key="js">++plone++dropdown/dropdown-bundle.js</value>
-      <value key="css">
-        <element>++plone++dropdown/dropdown.less</element>
-      </value>
-  </records> -->
+  <!-- Remove old bundle -->
+  <records
+      prefix="plone.bundles/webcouturier-dropdownmenu-bundle" remove="True"
+      interface="Products.CMFPlone.interfaces.IBundleRegistry">
+  </records>
 
   <records
-      prefix="plone.bundles/webcouturier-dropdownmenu-bundle"
+      prefix="plone.bundles/webcouturier-dropdownmenu"
       interface="Products.CMFPlone.interfaces.IBundleRegistry">
     <value key="resources">
       <element>webcouturier-dropdownmenu</element>
