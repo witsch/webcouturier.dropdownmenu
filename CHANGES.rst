@@ -5,6 +5,10 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
+- Mobile navigation with expandable/collapsable submenu levels.
+  Resource registration cleanup
+  [agitator]
+
 - To set global section active tab, use ``selected_portal_tab`` instead simple url comparison.
   Fixes the ``Home`` tab always set active.
   Fixes: #31.
