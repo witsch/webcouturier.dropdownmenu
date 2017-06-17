@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -40,7 +41,8 @@ class TestDropdownmenu(unittest.TestCase):
         rf = getattr(self.portal, 'folder-0')
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         for i in range(2):
-            rf.invokeFactory('Folder', 'sub-%s' % i)  # noqa: P001, S001
+            api.content.create(container=rf,
+                               type='Folder', id='sub-{0}'.format(i))
         setRoles(self.portal, TEST_USER_ID, ['Member'])
 
         return rf.absolute_url()
