@@ -70,8 +70,11 @@
 }
 .plone-navbar-nav li .submenu li:hover ul {
   top: 0;
-  left: -100%;
+  left: 100%;
   width: 100%;
+}
+.plone-navbar-nav li:last-child .submenu li:hover ul {
+  left: -100%;
 }
 @media (max-width: 768px) {
   .plone-navbar-collapse.in .opener {

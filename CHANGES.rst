@@ -5,6 +5,9 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
+- made last childs sub sub items float left instead of right (outside of screen width)
+  [iham]
+
 - Mobile navigation with expandable/collapsable submenu levels.
   Resource registration cleanup
   [agitator]
