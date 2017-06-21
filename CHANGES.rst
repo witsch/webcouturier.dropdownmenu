@@ -10,9 +10,11 @@ Changelog
   Fixes: #31.
   [thet]
 
-- Fix AttributeError during upgrade. 
+- Fix AttributeError during upgrade.
   [abosio]
 
+- Improve README
+  [svx]
 
 3.0.1 (2016-11-24)
 ------------------
