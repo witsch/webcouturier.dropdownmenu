@@ -62,3 +62,16 @@ def upgrade_1012_to_1030(context):
     logger.info(
         u'profile {0} with step {1} imported'.format(profile_id, step_id)
     )
+
+
+def upgrade_step_import_profile(context):
+    """Upgrade to version 3.0"""
+
+    # IMPORT REGISTRY PROFILE
+    profile_id = 'profile-webcouturier.dropdownmenu:default'
+    step_id = 'plone.app.registry'
+    setup = api.portal.get_tool('portal_setup')
+    setup.runImportStepFromProfile(profile_id=profile_id, step_id=step_id)
+    logger.info(
+        u'profile {0} with step {1} imported'.format(profile_id, step_id)
+    )

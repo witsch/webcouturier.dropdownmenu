@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from plone import api
 from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
 from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import applyProfile
@@ -32,8 +33,9 @@ class WebcouturierDropdownmenuLayer(PloneSandboxLayer):
         workflowTool = getToolByName(portal, 'portal_workflow')   # noqa: P001
         workflowTool.setDefaultChain('simple_publication_workflow')
         for i in range(2):
-            folder_id = 'folder-%s' % i
-            portal.invokeFactory('Folder', folder_id)  # noqa: P001
+            folder_id = 'folder-{0}'.format(i)
+            api.content.create(container=portal,
+                               type='Folder', id=folder_id)
         setRoles(portal, TEST_USER_ID, ['Member'])
 
 

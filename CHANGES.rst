@@ -5,12 +5,19 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
+- made last childs sub sub items float left instead of right (outside of screen width)
+  [iham]
+
+- Mobile navigation with expandable/collapsable submenu levels.
+  Resource registration cleanup
+  [agitator]
+
 - To set global section active tab, use ``selected_portal_tab`` instead simple url comparison.
   Fixes the ``Home`` tab always set active.
   Fixes: #31.
   [thet]
 
-- Fix AttributeError during upgrade. 
+- Fix AttributeError during upgrade.
   [abosio]
 
 
