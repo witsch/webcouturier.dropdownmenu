@@ -20,6 +20,8 @@ Changelog
 - Fix AttributeError during upgrade.
   [abosio]
 
+- Improve README
+  [svx]
 
 3.0.1 (2016-11-24)
 ------------------

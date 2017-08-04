@@ -17,24 +17,23 @@ The dropdown solution for Plone since 2007.
 
 You will get the dropdown menus for those items in global navigation that have the subitems.
 Submenus are built based on the same policy as the Site Map,
-so it will show the same tree as you would get in the Site Map or navigation portlet being in appropriate section.
+it will show the same tree as you would get in the Site Map or navigation portlet being in appropriate section.
 
 
 How it works
 ------------
 
 Dropdown menus are build based on the same policy as the Site Map,
-so it will show the same tree as you would get in the Site Map or navigation portlet being in appropriate section.
-This means - no **private** objects for anonymouses;
-no objects, excluded from the navigation -
+it will show the same tree as you would get in the Site Map or navigation portlet being in appropriate section.
+
+This means - no **private** objects for anonymous; no objects, excluded from the navigation -
 exactly the same behavior you would expect from Site Map or navigation portlet.
 
 
 Installation
 ------------
 
-As any addons, please follow the official install documentation:
-http://docs.plone.org/manage/installing/installing_addons.html
+As any add-ons, please follow the `official install documentation <https://docs.plone.org/manage/installing/installing_addons.html>`_.
 
 
 Tips
@@ -72,7 +71,9 @@ Contribute
 
 We'd be happy to see many commits, forks and pull-requests to make webcouturier.dropdownmenu even better.
 
-If you are having issues, please let us know. `Open an issue <http://github.com/collective/webcouturier.dropdownmenu/issues>`_ or send us an e-mail to dev@bluedynamics.com.
+If you are having issues, please let us know.
+
+`Open an issue <http://github.com/collective/webcouturier.dropdownmenu/issues>`_ or send us an e-mail to dev@bluedynamics.com.
 
 
 
@@ -96,6 +97,7 @@ Contributors:
 - Jens Klein [jensens] `BlueDynamics Alliance`_
 - Peter Holzer [agitator] `BlueDynamics Alliance`_
 - Johannes Raggam [thet] `BlueDynamics Alliance`_
+- Sven Strack [svx]
 
 
 .. _Makina-Corpus: http://www.makina-corpus.com
