@@ -1,6 +1,26 @@
 Changelog
 =========
 
+3.1.0 (unreleased)
+------------------
+
+- Plone 5.1+ only release.
+  [iham]
+  [agitator]
+
+Fixes
+-----
++ [x] tests using unittest instead of unittest2 [iham]
++ [ ] mobile first.
++ [x] clean up "old" stuff. [iham]
++ [x] code clean up [iham]
++ [ ] fix css hover on small/mobile devices.
++ [ ] fix hover behavior.
++ [ ] add "accordion on/off" boolean field to control-panel.
+
+Compatibility
+-------------
+- Only use with Plone 5.1+ as we are preferring a newer version of plonetheme.barceloneta (especially dropdowns.plone.less)
 
 3.0.2 (unreleased)
 ------------------

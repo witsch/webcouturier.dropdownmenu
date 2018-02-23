@@ -26,13 +26,13 @@ def upgrade_1012_to_1030(context):
             layers.remove('dropdownmenu_sunburst')
             logger.info(
                 u'skin layer dropdownmenu_sunburst removed from {0}'.format(
-                    name
-                )
+                    name,
+                ),
             )
         if 'dropdownmenu' in layers:
             layers.remove('dropdownmenu')
             logger.info(
-                u'skin layer dropdownmenu removed from {0}'.format(name)
+                u'skin layer dropdownmenu removed from {0}'.format(name),
             )
         pskin._getSelections()[name] = ','.join(layers)
 
@@ -60,7 +60,7 @@ def upgrade_1012_to_1030(context):
     setup = api.portal.get_tool('portal_setup')
     setup.runImportStepFromProfile(profile_id=profile_id, step_id=step_id)
     logger.info(
-        u'profile {0} with step {1} imported'.format(profile_id, step_id)
+        u'profile {0} with step {1} imported'.format(profile_id, step_id),
     )
 
 
@@ -73,5 +73,5 @@ def upgrade_step_import_profile(context):
     setup = api.portal.get_tool('portal_setup')
     setup.runImportStepFromProfile(profile_id=profile_id, step_id=step_id)
     logger.info(
-        u'profile {0} with step {1} imported'.format(profile_id, step_id)
+        u'profile {0} with step {1} imported'.format(profile_id, step_id),
     )

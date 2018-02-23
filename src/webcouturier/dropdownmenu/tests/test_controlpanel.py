@@ -22,7 +22,7 @@ class ControlPanelTestCase(unittest.TestCase):
         view = api.content.get_view(
             u'dropdown-controlpanel',
             self.portal,
-            request
+            request,
         )
         view = view.__of__(self.portal)
         self.assertTrue(view())
@@ -42,7 +42,7 @@ class ControlPanelTestCase(unittest.TestCase):
         setup_tool = self.portal['portal_setup']
         with api.env.adopt_roles(['Manager']):
             setup_tool.runAllImportStepsFromProfile(
-                'profile-webcouturier.dropdownmenu:uninstall'
+                'profile-webcouturier.dropdownmenu:uninstall',
             )
         actions = [a.getAction(self)['id']
                    for a in self.controlpanel.listActions()]
@@ -56,9 +56,7 @@ class RegistryTestCase(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         self.registry = getUtility(IRegistry)
-        self.settings = self.registry.forInterface(  # noqa: P001
-            IDropdownConfiguration
-        )
+        self.settings = self.registry.forInterface(IDropdownConfiguration)  # noqa: P001 E501
 
     def test_css_class_blacklist_record_in_registry(self):
         self.assertTrue(hasattr(self.settings, 'dropdown_depth'))
@@ -68,12 +66,10 @@ class RegistryTestCase(unittest.TestCase):
         setup_tool = self.portal['portal_setup']
         with api.env.adopt_roles(['Manager']):
             setup_tool.runAllImportStepsFromProfile(
-                'profile-webcouturier.dropdownmenu:uninstall'
+                'profile-webcouturier.dropdownmenu:uninstall',
             )
 
-        records = [
-            IDropdownConfiguration.__identifier__ + '.dropdown_depth',
-        ]
+        records = [IDropdownConfiguration.__identifier__ + '.dropdown_depth']
 
         for r in records:
             self.assertNotIn(r, self.registry)

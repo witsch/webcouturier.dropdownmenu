@@ -13,7 +13,7 @@ class IDropdownConfiguration(Interface):
         description=_(u'help_dropdown_depth',
                       default=u'How many levels to list after the top level.'),
         required=True,
-        default=3
+        default=3,
     )
 
     enable_caching = schema.Bool(
@@ -28,7 +28,7 @@ class IDropdownConfiguration(Interface):
                      u'know what this is about. Disable this option '
                      u'if you get unexpected behavior of your global tabs.')),
         default=False,
-        required=False
+        required=False,
     )
 
     enable_parent_clickable = schema.Bool(
@@ -41,7 +41,7 @@ class IDropdownConfiguration(Interface):
                      u'clickable when it is not a parent so it has no '
                      u'children.')),
         default=True,
-        required=False
+        required=False,
     )
 
     enable_desc = schema.Bool(
@@ -51,7 +51,7 @@ class IDropdownConfiguration(Interface):
             u'help_desc',
             default=(u'With this option enabled, description is also shown.')),
         default=False,
-        required=False
+        required=False,
     )
 
     enable_images = schema.Bool(
@@ -61,7 +61,7 @@ class IDropdownConfiguration(Interface):
             u'help_img',
             default=(u'With this option enabled, images are shown.')),
         default=False,
-        required=False
+        required=False,
     )
 
     img_size = schema.Choice(

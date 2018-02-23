@@ -22,7 +22,7 @@ import plone.api
 def _get_cfg(name):
     return plone.api.portal.get_registry_record(
         name,
-        interface=IDropdownConfiguration
+        interface=IDropdownConfiguration,
     )
 
 
@@ -35,7 +35,7 @@ class DropdownQueryBuilder(NavtreeQueryBuilder):
         self.query['path'] = {
             'query': '/'.join(context.getPhysicalPath()),
             'navtree_start': 1,
-            'depth': _get_cfg('dropdown_depth')
+            'depth': _get_cfg('dropdown_depth'),
         }
 
 

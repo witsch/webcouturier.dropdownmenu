@@ -5,7 +5,7 @@ from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from webcouturier.dropdownmenu.testing import DROPDOWN_INTEGRATION_TESTING
 
-import unittest2 as unittest
+import unittest
 import zope.interface
 
 
@@ -29,7 +29,7 @@ class TestDropdownmenu(unittest.TestCase):
         for folder_id in self.root_folders_ids:
             self.assertIn(
                 folder_id,
-                [tab['id'] for tab in viewlet.portal_tabs]
+                [tab['id'] for tab in viewlet.portal_tabs],
             )
 
         setRoles(portal, TEST_USER_ID, ['Member'])
@@ -58,7 +58,8 @@ class TestDropdownmenu(unittest.TestCase):
         self.assertNotEqual(
             self.viewlet.getTabObject(rf_url),
             '',
-            'We don\'t have the sub-folders available in the global navigation'
+            'We don\'t have the sub-folders available '
+            'in the global navigation',
         )
 
     def test_subfolders_in_dropdownmenus(self):
@@ -67,7 +68,7 @@ class TestDropdownmenu(unittest.TestCase):
         self.assertIn(
             'href="http://nohost/plone/folder-0/sub-0"',
             self.viewlet.getTabObject(rf_url),
-            'The sub-folder\'s URL is not available in the global navigation'
+            'The sub-folder\'s URL is not available in the global navigation',
         )
 
     def test_leaks_in_dropdownmenus(self):
@@ -76,7 +77,8 @@ class TestDropdownmenu(unittest.TestCase):
         self.assertNotIn(
             'href="http://nohost/plone/folder-0"',
             self.viewlet.getTabObject(rf_url),
-            'We have the leakage of the top level folders in the dropdownmenus'
+            'We have the leakage of the top '
+            'level folders in the dropdownmenus',
         )
 
 
@@ -108,7 +110,7 @@ class TestINavigationRootDropdownmenu(unittest.TestCase):
         self.assertNotIn(
             '<a href="http://nohost/plone/folder-0"',
             self.viewlet.getTabObject(self.rf_url),
-            'The root folder itself is in the globalnavigation'
+            'The root folder itself is in the globalnavigation',
         )
 
     def test_dropdownmenus_content(self):
@@ -116,5 +118,5 @@ class TestINavigationRootDropdownmenu(unittest.TestCase):
         self.assertNotIn(
             '<a href="http://nohost/plone/folder-1"',
             self.viewlet.getTabObject(self.rf_url),
-            'The dropdown menus don\'t respect the iNavigationRoot.'
+            'The dropdown menus don\'t respect the iNavigationRoot.',
         )

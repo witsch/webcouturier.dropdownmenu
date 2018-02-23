@@ -3,7 +3,7 @@ from plone.testing import layered
 from webcouturier.dropdownmenu.testing import DROPDOWN_FUNCTIONAL_TESTING
 
 import doctest
-import unittest2 as unittest
+import unittest
 
 
 def test_suite():
@@ -14,8 +14,8 @@ def test_suite():
                 doctest.DocFileSuite(
                     'browser.rst',
                 ),
-                layer=DROPDOWN_FUNCTIONAL_TESTING
+                layer=DROPDOWN_FUNCTIONAL_TESTING,
             ),
-        ]
+        ],
     )
     return suite

@@ -98,6 +98,7 @@ Contributors:
 - Peter Holzer [agitator] `BlueDynamics Alliance`_
 - Johannes Raggam [thet] `BlueDynamics Alliance`_
 - Sven Strack [svx]
+- Markus Hilbert [iham] `Academy of fine arts Vienna`_
 
 
 .. _Makina-Corpus: http://www.makina-corpus.com
@@ -107,3 +108,4 @@ Contributors:
 .. _toutpt: http://profiles.google.com/toutpt
 .. _Ecréall: http://www.ecreall.com/
 .. _BlueDynamics Alliance: http://bluedynamics.com/
+.. _Academy of fine arts Vienna: http://akbild.ac.at

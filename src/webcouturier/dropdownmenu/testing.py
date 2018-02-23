@@ -44,13 +44,13 @@ DROPDOWN_FIXTURE = WebcouturierDropdownmenuLayer()
 
 DROPDOWN_INTEGRATION_TESTING = IntegrationTesting(
     bases=(DROPDOWN_FIXTURE,),
-    name='WebcouturierDropdownmenuLayer:IntegrationTesting'
+    name='WebcouturierDropdownmenuLayer:IntegrationTesting',
 )
 
 
 DROPDOWN_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(DROPDOWN_FIXTURE,),
-    name='WebcouturierDropdownmenuLayer:FunctionalTesting'
+    name='WebcouturierDropdownmenuLayer:FunctionalTesting',
 )
 
 
@@ -58,7 +58,7 @@ DROPDOWN_ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(
         DROPDOWN_FIXTURE,
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE
+        z2.ZSERVER_FIXTURE,
     ),
-    name='WebcouturierDropdownmenuLayer:AcceptanceTesting'
+    name='WebcouturierDropdownmenuLayer:AcceptanceTesting',
 )

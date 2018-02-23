@@ -2,7 +2,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '3.0.2.dev0'
+version = '3.1.0.dev0'
 
 setup(
     name='webcouturier.dropdownmenu',
@@ -13,7 +13,6 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
-        'Framework :: Plone :: 5.0',
         'Framework :: Plone :: 5.1',
         'Framework :: Plone',
         'License :: OSI Approved :: GNU General Public License (GPL)',
