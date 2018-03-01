@@ -62,3 +62,25 @@ DROPDOWN_ACCEPTANCE_TESTING = FunctionalTesting(
     ),
     name='WebcouturierDropdownmenuLayer:AcceptanceTesting',
 )
+
+
+class WebcouturierDropdownmenuContentLayer(PloneSandboxLayer):
+
+    defaultBases = (PLONE_APP_CONTENTTYPES_FIXTURE,)
+
+    def setUpZope(self, app, configurationContext):
+        # Load any other ZCML that is required for your tests.
+        # The z3c.autoinclude feature is disabled in the Plone fixture base
+        # layer.
+        self.loadZCML(package=webcouturier.dropdownmenu)
+
+    def setUpPloneSite(self, portal):
+        applyProfile(portal, 'webcouturier.dropdownmenu:create_content')
+
+
+DROPDOWN_CONTENT_FIXTURE = WebcouturierDropdownmenuContentLayer()
+
+DROPDOWN_CONTENT_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(DROPDOWN_CONTENT_FIXTURE,),
+    name='WebcouturierDropdownmenuContentLayer:IntegrationTesting',
+)

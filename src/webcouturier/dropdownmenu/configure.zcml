@@ -25,6 +25,15 @@
   />
 
   <genericsetup:registerProfile
+      description="Extension profile for dropdown menu (webcouturier.dropdownmenu)."
+      directory="profiles/default"
+      name="create_content"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      title="Dropdown menu (incl. content)"
+      post_handler=".setuphandlers.create_content"
+  />
+
+  <genericsetup:registerProfile
       description="Uninstall extension profile for dropdown menu (webcouturier.dropdownmenu)."
       directory="profiles/uninstall"
       name="uninstall"

@@ -22,6 +22,7 @@ Compatibility
 -------------
 - Only use with Plone 5.1+ as we are preferring a newer version of plonetheme.barceloneta (especially dropdowns.plone.less)
 
+
 3.0.2 (unreleased)
 ------------------
 
