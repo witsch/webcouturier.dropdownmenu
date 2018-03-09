@@ -14,8 +14,8 @@ Fixes
 + [ ] mobile first.
 + [x] clean up "old" stuff. [iham]
 + [x] code clean up [iham]
-+ [ ] fix css hover on small/mobile devices.
-+ [ ] fix hover behavior.
++ [x] fix css hover on small/mobile devices. [iham]
++ [x] fix hover behavior.
 + [ ] add "accordion on/off" boolean field to control-panel.
 
 Compatibility

@@ -32,8 +32,8 @@
     background-color: @plone-link-color;
     display: none;
     list-style: none;
-    padding-left: 0;
-    padding-bottom: 0;
+    padding: 0;
+    box-sizing: content-box;
     position: absolute;
     z-index: 9999;
     .opener {
@@ -98,6 +98,9 @@
 }
 
 @media (max-width: 768px) {
+  .plone-navbar-collapse {
+    box-shadow: none;
+  }
   .plone-navbar-collapse.in {
     .opener {
       background: transparent;
@@ -105,20 +108,20 @@
       border-radius: (@plone-font-size-base * .25);
       float: right;
       text-align: center;
-      width: @plone-font-size-base * 2;
-      height: @plone-font-size-base * 2;
+      width: @plone-font-size-base * 1.5;
+      height: @plone-font-size-base * 1.5;
       margin-top: -(@plone-font-size-base * 0.4);
-      margin-right: -(@plone-font-size-base * 0.7);
+      margin-right: 0;
       .caret {
         display: inline-block;
         width: 0;
         height: 0;
         margin-left: 0;
-        margin-bottom: 0.2em;
+        margin-bottom: 0.3em;
         vertical-align: bottom;
-        border-top:    0.5em dashed;
-        border-right:  0.5em solid transparent;
-        border-left:   0.5em solid transparent;
+        border-top:   (@plone-font-size-base * .5) dashed;
+        border-right: (@plone-font-size-base * .5) solid transparent;
+        border-left:  (@plone-font-size-base * .5) solid transparent;
         border-bottom: 0;
       }
     }
@@ -137,24 +140,23 @@
           border-radius: (@plone-font-size-base * .25);
           float: right;
           text-align: center;
-          width: @plone-font-size-base * 2;
-          height: @plone-font-size-base * 2;
+          width: @plone-font-size-base * 1.5;
+          height: @plone-font-size-base * 1.5;
           margin-top: -(@plone-font-size-base * 0.4);
-          margin-right: -(@plone-font-size-base * 0.7);
+          margin-right: 0;
           .caret {
             display: inline-block;
             width: 0;
             height: 0;
             margin-left: 0;
-            margin-bottom: 0.2em;
+            margin-bottom: 0.3em;
             vertical-align: bottom;
-            border-top:    0.5em dashed;
-            border-right:  0.5em solid transparent;
-            border-left:   0.5em solid transparent;
+            border-top:   (@plone-font-size-base * .5) dashed;
+            border-right: (@plone-font-size-base * .5) solid transparent;
+            border-left:  (@plone-font-size-base * .5) solid transparent;
             border-bottom: 0;
           }
         }
-        // display: block;
         position: relative;
         a {
           &:hover {
@@ -192,10 +194,19 @@
     }
     .plone-navbar-nav li {
       .submenu {
-        // display: none;
+        display: none;
+        float: none;
+        z-index: unset;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .submenu.menu-open {
+        display: static;
       }
       &:hover > .submenu {
-        display: unset;
+
       }
     }
   }

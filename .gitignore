@@ -30,3 +30,4 @@ parts
 pip-selfcheck.json
 var
 /.Python
+/node_modules

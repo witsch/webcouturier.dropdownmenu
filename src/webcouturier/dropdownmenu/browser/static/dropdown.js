@@ -25,11 +25,19 @@ require([
         //     $(this).closest('.dropdown-menu').stop(true, true).hide();
         //     $(this).removeClass('open');
         // });
+        var open_class = 'menu-open';
         $('ul.nav li.dropdown .opener').click(function(e) {
             e.preventDefault();
-            $(this).toggleClass('menu-open');
-            $(this).parent().next('.dropdown-menu').toggleClass('menu-open');
-            ;
+            $(this).toggleClass(open_class);
+            $(this).parent().next('.dropdown-menu').toggleClass(open_class);
+            // an accordion like behavior.
+            var sibls = $(this).parents('li').siblings();
+            sibls.each(function() {
+                var still_open = $(this).find('.' + open_class);
+                still_open.each(function() {
+                    $(this).toggleClass(open_class);
+                });
+            });
         });
     });
 
