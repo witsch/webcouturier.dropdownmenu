@@ -1,3 +1,5 @@
+@import "@{barcelonetaPath}/less/variables.plone.less";
+
 //** Width of the `border` for generating carets that indicate dropdowns.
 @plone-caret-width-base:          4px;
 //** Carets increase slightly in size for larger components.
@@ -89,6 +91,12 @@
         top: 0;
         left: 100%;
         width: 100%
+      }
+      &:first-child > a {
+        border-radius: @plone-border-radius-base @plone-border-radius-base 0 0;
+      }
+      &:last-child > a {
+        border-radius: 0 0 @plone-border-radius-base @plone-border-radius-base;
       }
     }
   }
