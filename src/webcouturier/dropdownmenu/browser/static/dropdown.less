@@ -93,10 +93,12 @@
         width: 100%
       }
       &:first-child > a {
-        border-radius: @plone-border-radius-base @plone-border-radius-base 0 0;
+        border-top-left-radius: @plone-border-radius-base;
+        border-top-right-radius: @plone-border-radius-base;
       }
       &:last-child > a {
-        border-radius: 0 0 @plone-border-radius-base @plone-border-radius-base;
+        border-bottom-left-radius: @plone-border-radius-base;
+        border-bottom-right-radius: @plone-border-radius-base;
       }
     }
   }
