@@ -1,6 +1,5 @@
 <tal:master define="level options/level|python:0;
                     children options/children | nothing;
-                    bottomLevel options/bottomLevel | nothing;
                     normalizeString nocall: context/plone_utils/normalizeString;"
             i18n:domain="plone">
 
@@ -11,7 +10,7 @@
                 enable_thumbs view/enable_thumbs|utils/enableThumbs;
                 enable_desc view/enable_desc|utils/enableDesc">
 <tal:navitem repeat="node children">
-<li tal:define="show_children   node/show_children;
+<tal:li define="show_children   node/show_children;
                 children        node/children;
                 item_type       node/portal_type;
                 item_url        node/getURL;
@@ -21,9 +20,21 @@
                 item_icon       nocall:node/item_icon;
                 my_item         node/item;
                 absolute_url    nocall:python:my_item.getObject().absolute_url;
-                normalizeString nocall: context/plone_utils/normalizeString;"
-    tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel"
-    tal:attributes="class python:children and 'dropdown-submenu' or None">
+                normalizeString nocall: context/plone_utils/normalizeString;
+                start           repeat/node/start;
+                level           node/level;
+                last            node/last;
+                q               python: chr(34);
+                li              python: '<li class={}dropdown-submenu{}>'.format(q, q) if children else '<li>'">
+
+    <tal:delim condition="python: level > last"
+               replace="structure python:'<ul class={}submenu dropdown-menu navTree navTreeLevel{}{}> {}'.format(q, level, q, li)" />
+
+    <tal:delim repeat="_ python: range(last - level)"
+               replace="structure python:'</li> </ul>'" />
+
+    <tal:delim condition="python: level <= last and not start"
+               replace="structure python:'</li> {}'.format(li)" />
 
     <tal:level define="has_children nocall:children;
                        children_class python:has_children and ' hasDropDown' or '';
@@ -43,12 +54,14 @@
             <span tal:content="node/Description" class="submenu_description"
                   tal:condition="enable_desc">Selected Item Description</span>
         </a>
-        <ul tal:attributes="class python:'submenu dropdown-menu navTree navTreeLevel'+str(level)"
-            tal:condition="python: len(children) > 0 and show_children">
-            <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
-        </ul>
     </tal:level>
-</li>
+
+    <tal:end condition="repeat/node/end">
+        <tal:delim repeat="_ python: range(level)"
+                   replace="structure python:'</li> </ul>'" />
+    </tal:end>
+
+</tal:li>
 </tal:navitem>
 </metal:main>
 </tal:master>

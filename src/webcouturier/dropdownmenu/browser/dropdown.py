@@ -183,5 +183,20 @@ class DropdownMenuViewlet(common.GlobalSectionsViewlet):
         bottomLevel = self.data.bottomLevel or self.properties.getProperty(
             'bottomLevel', 0)
 
-        return self.recurse(children=data.get('children', []), level=1,
-                            bottomLevel=bottomLevel).strip()
+        def flatten(items, level=0):
+            if bottomLevel <= 0 or level <= bottomLevel:
+                for item in items:
+                    yield dict(item, level=level)
+                    if item.get('show_children'):
+                        children = item.get('children', [])
+                        for child in flatten(children, level=level+1):
+                            yield child
+
+        def add_last(items):
+            last = 0
+            for item in items:
+                yield dict(item, last=last)
+                last = item['level']
+
+        children = list(add_last(flatten(data.get('children', []))))
+        return self.recurse(children=children).strip()
