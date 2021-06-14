@@ -12,15 +12,9 @@
 <tal:navitem repeat="node children">
 <tal:li define="show_children   node/show_children;
                 children        node/children;
-                item_type       node/portal_type;
                 item_url        node/getURL;
                 item_remote_url node/getRemoteUrl;
                 use_remote_url  node/useRemoteUrl | nothing;
-                item_type       node/portal_type;
-                item_icon       nocall:node/item_icon;
-                my_item         node/item;
-                absolute_url    nocall:python:my_item.getObject().absolute_url;
-                normalizeString nocall: context/plone_utils/normalizeString;
                 start           repeat/node/start;
                 level           node/level;
                 last            node/last;
@@ -46,10 +40,13 @@
                            class python:item_clickable and item_class or item_class + ' noClick'">
 
             <span tal:content="node/Title" class="submenu_title">Selected Item Title</span>
+            <tal:thumbnail condition="python: enable_thumbs != 'none'">
             <img src="" alt="" class="subnmenu_image"
-                 tal:define="has_icon exists:python:my_item.getObject().getImage().icon"
-                 tal:attributes="src string:${absolute_url}/image_${enable_thumbs}"
-                  tal:condition="python:has_icon and enable_thumbs!='none'" />
+                 tal:define="obj node/item/getObject;
+                             has_icon exists:python:obj.getImage().icon"
+                 tal:attributes="src string:${obj.absolute_url}/image_${enable_thumbs}"
+                 tal:condition="python: has_icon" />
+            </tal:thumbnail>
 
             <span tal:content="node/Description" class="submenu_description"
                   tal:condition="enable_desc">Selected Item Description</span>
