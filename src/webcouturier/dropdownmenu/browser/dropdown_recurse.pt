@@ -1,7 +1,6 @@
 <tal:master
     define="level options/level|python:0;
-            children options/children | nothing;
-            bottomLevel options/bottomLevel | nothing"
+            children options/children | nothing;"
     i18n:domain="plone">
 
 <metal:main
@@ -10,11 +9,8 @@
                 enable_images view/enableImages;
                 image_size view/imgSize;
                 enable_desc view/enableDesc">
-<tal:loop
-    repeat="node children"
-    condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
-
-  <li tal:define="item            node/item;
+<tal:loop repeat="node children">
+  <tal:li define="item            node/item;
                   item_url        node/getURL;
                   item_remote_url node/getRemoteUrl;
                   use_remote_url  node/useRemoteUrl | nothing;
@@ -25,8 +21,22 @@
                   class_position  python:'menu-position-{0}'.format(repeat.node.number);
                   class_selected  python:' selected active' if item_url in context.absolute_url() else None;
                   class_state     string: state-${node/normalized_review_state};
-                  class_clickable python:' noClick' if not enable_parent_clickable and children else None;"
-      class="${class_position}${class_dropdown}${class_selected}">
+                  class_clickable python:' noClick' if not enable_parent_clickable and children else None;
+                  start           repeat/node/start;
+                  level           node/level;
+                  last            node/last;
+                  q               python: chr(34);
+                  li              python: '<li class={}{}{}{}{}>'.format(q, class_position, class_dropdown, class_selected, q)">
+
+    <tal:delim condition="python: level > last"
+               replace="structure python:'<ul class={}submenu dropdown-menu navTree navTreeLevel{}{}> {}'.format(q, level, q, li)" />
+
+    <tal:delim repeat="_ python: range(last - level)"
+               replace="structure python:'</li> </ul>'" />
+
+    <tal:delim condition="python: level <= last and not start"
+               replace="structure python:'</li> {}'.format(li)" />
+
     <a class="clearfix${class_state}${class_has_dd}${class_clickable}"
        title="${node/Description}"
        href="${python:use_remote_url and item_remote_url or item_url}">
@@ -40,13 +50,12 @@
       <span tal:condition="children" class="opener"><span class="caret"></span></span>
     </a>
 
-    <ul tal:condition="python: len(children) > 0 and show_children"
-        class="${python:'submenu dropdown-menu navTree navTreeLevel'+str(level)}">
-      <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
-    </ul>
+    <tal:end condition="repeat/node/end">
+        <tal:delim repeat="_ python: range(level)"
+                   replace="structure python:'</li> </ul>'" />
+    </tal:end>
 
-  </li>
-
+</tal:li>
 </tal:loop>
 </metal:main>
 </tal:master>

@@ -53,9 +53,11 @@
 
                   <tal:block tal:condition="subitems">
                   <ul class="submenu dropdown-menu navTreeLevel0">
+                  <li class="dropdown-submenu">
                   <tal:subitems tal:replace="structure subitems">
                     <tal:comment replace="nothing">Submenu</tal:comment>
                   </tal:subitems>
+                  </li>
                   </ul>
                   </tal:block>
               </li>
