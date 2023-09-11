@@ -31,7 +31,7 @@
                               class_clickable python:' noClick' if not view.enable_parent_clickable and subitems else '';
                               class_position  python:'menu-position-{0}'.format(repeat.tab.number());
                               class_children  python:' hasDropDown dropdown' if subitems else '';
-                              class_selected  python:' selected active' if selected_tab==tid else '';
+                              class_selected  python:' selected' if selected_tab==tid else '';
                               review_state    python:' state-' + tab.get('review_state') if tab.get('review_state', None) else ''"
                   id="portaltab-${tid}"
                   class="${class_position}${class_children}${class_selected}">
@@ -40,7 +40,7 @@
                       href="${href}"
                       title="${title}"
                       target="${target}"
-                      class="dropdown-toggle${review_state}${class_clickable}"
+                      class="${review_state}${class_clickable}"
                       role="button"
                       aria-haspopup="true"
                       aria-expanded="false">${tab/name}<span class="opener"><span class="caret"></span></span></a>
