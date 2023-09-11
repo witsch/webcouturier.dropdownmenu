@@ -16,12 +16,12 @@
                   use_remote_url  node/useRemoteUrl | nothing;
                   show_children   node/show_children;
                   children        node/children;
-                  class_has_dd    python:children and ' hasDropDown' or None;
-                  class_dropdown  python:children and ' dropdown-submenu' or None;
-                  class_position  python:'menu-position-{0}'.format(repeat.node.number);
-                  class_selected  python:' selected active' if item_url in context.absolute_url() else None;
+                  class_has_dd    python:children and ' hasDropDown' or '';
+                  class_dropdown  python:children and ' dropdown-submenu' or '';
+                  class_position  python:'menu-position-{0}'.format(repeat.node.number());
+                  class_selected  python:' selected active' if item_url in context.absolute_url() else '';
                   class_state     string: state-${node/normalized_review_state};
-                  class_clickable python:' noClick' if not enable_parent_clickable and children else None;
+                  class_clickable python:' noClick' if not enable_parent_clickable and children else '';
                   start           repeat/node/start;
                   level           node/level;
                   last            node/last;
